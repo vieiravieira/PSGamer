@@ -8,7 +8,7 @@ window.PS_CONFIG = {
         Cole aqui a URL do App da Web do Apps Script (termina em /exec).
         Passo a passo no LEIA-ME.
         Exemplo: "https://script.google.com/macros/s/AKfy.../exec"            */
-  PLANILHA_URL: "https://script.google.com/macros/s/AKfycbwbCWyTvb4m3pkFu-pTSPRr8PRHwjFIimshx90lF62oo4bSzKVwcywWrOjSnkA8MQfD/exec",
+  PLANILHA_URL: "https://script.google.com/macros/s/AKfycbzwaau02e6V01t6nKKsWLUUfgUaSqNMTAXF3vFOQwDhUqYFpGdsZSxYacMZ0uwHtn8B/exec",
 
   /* 2) BRINDES: os 5 prêmios que podem sair nas bolhas.
         Coloque as fotos na pasta "brindes" com esses nomes (ou troque o nome aqui).
