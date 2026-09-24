@@ -1,0 +1,3 @@
+Coloque aqui as fotos dos brindes com os nomes definidos no config.js
+(brinde1.jpg, brinde2.jpg, brinde3.jpg, brinde4.jpg, brinde5.jpg).
+Foto quadrada fica melhor (ex: 600x600 pixels).

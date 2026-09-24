@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PS Modo Black Friday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E4E5E1; --surface:#FFFFFF; --surface-2:#F3F3F0; --ink:#1C1D1F; --muted:#56595E; --line:#CBCCC7;
+  --yellow:#FFCC00; --edge:#1C1D1F; --green:#10905A; --orange:#DD7A00; --red:#C9352A; --blue:#2856CC;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131518; --surface:#1E2125; --surface-2:#272B30; --ink:#F1F1EC; --muted:#A7ABB1; --line:#383D44;
+    --green:#26B672; --orange:#FF9B22; --red:#F0564A; --blue:#6690F2; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131518; --surface:#1E2125; --surface-2:#272B30; --ink:#F1F1EC; --muted:#A7ABB1; --line:#383D44;
+  --green:#26B672; --orange:#FF9B22; --red:#F0564A; --blue:#6690F2; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px 40px}
+
+/* faixa zebrada de piso */
+.hazard{height:14px;background:repeating-linear-gradient(-45deg,var(--yellow) 0 14px,var(--edge) 14px 28px)}
+
+/* barra do topo */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:520px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.topbar .who{flex:1;min-width:0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--yellow);color:var(--edge);font-family:var(--display);font-weight:800;font-stretch:90%;padding:4px 10px;border-radius:999px;border:2px solid var(--edge);font-size:15px}
+.icon-btn{background:transparent;border:1px solid var(--line);border-radius:10px;width:38px;height:38px;display:grid;place-items:center;font-size:18px}
+
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0}
+h1{font-size:clamp(40px,12vw,58px);font-weight:900;font-stretch:78%;letter-spacing:-.5px}
+h2{font-size:30px;font-weight:850;font-stretch:82%}
+h3{font-size:21px;font-weight:800;font-stretch:88%}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+
+/* botões */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;padding:12px 18px;border-radius:14px;border:2px solid var(--edge);background:var(--yellow);color:var(--edge);font-family:var(--display);font-weight:850;font-stretch:92%;font-size:20px;box-shadow:0 4px 0 var(--edge);transition:transform .08s, box-shadow .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--edge)}
+.btn[disabled]{background:var(--surface-2);color:var(--muted);border-color:var(--line);box-shadow:none;cursor:not-allowed;position:relative;overflow:hidden}
+.btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:none;font-size:17px;min-height:50px}
+.btn.dark{background:var(--ink);color:var(--bg);border-color:var(--ink);box-shadow:none}
+.linkish{background:none;border:0;color:var(--muted);text-decoration:underline;padding:8px;font-size:15px}
+.stack>*+*{margin-top:12px}
+
+/* início */
+.hero{padding:28px 0 8px}
+.hero .kicker{display:inline-block;background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-stretch:95%;padding:4px 10px;border-radius:6px;margin-bottom:14px;font-size:15px}
+.hero h1 .bf{display:block;color:var(--ink);-webkit-text-stroke:0}
+.hero p{font-size:18px}
+.field{display:block;margin-bottom:14px}
+.field span{display:block;font-weight:700;margin-bottom:6px}
+.field input,.field select{width:100%;min-height:54px;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--surface);font-size:18px}
+.field input:focus,.field select:focus{border-color:var(--ink);outline:none}
+.err{color:var(--red);font-weight:700;min-height:22px;font-size:15px}
+.rules{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:18px 0}
+.rules li{margin:4px 0}
+.rules ul{margin:6px 0 0;padding-left:20px}
+
+/* cartão do jogador */
+.player{background:var(--ink);color:var(--bg);border-radius:18px;padding:18px;margin:18px 0 22px;position:relative;overflow:hidden}
+.player .lvl{font-family:var(--display);font-weight:900;font-stretch:80%;font-size:28px;line-height:1.05;margin:2px 0 10px}
+.player .hi{opacity:.75;font-size:15px}
+.xpbar{height:14px;border-radius:999px;background:color-mix(in srgb,var(--bg) 22%,transparent);overflow:hidden}
+.xpbar i{display:block;height:100%;background:var(--yellow);border-radius:999px;transition:width .6s ease}
+.xpmeta{display:flex;justify-content:space-between;font-size:14px;margin-top:6px;opacity:.85}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.badge{font-size:22px;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:color-mix(in srgb,var(--bg) 14%,transparent)}
+.badge.off{filter:grayscale(1);opacity:.5}
+
+/* trilha de módulos: cada um é uma etiqueta de envio */
+.trail{list-style:none;margin:0;padding:0;position:relative}
+.trail::before{content:"";position:absolute;left:27px;top:20px;bottom:20px;border-left:3px dashed var(--line)}
+.stop{position:relative;display:flex;gap:14px;align-items:stretch;margin-bottom:14px}
+.node{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:24px;background:var(--surface);border:3px solid var(--line);z-index:1;align-self:center}
+.stop.open .node{border-color:var(--edge);background:var(--yellow)}
+.stop.done .node{border-color:var(--green);background:var(--green);color:#fff;font-size:26px}
+.label{flex:1;min-width:0;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px 14px;display:block}
+.stop.open .label{border-color:var(--ink)}
+.stop.locked .label{opacity:.55;cursor:not-allowed}
+.label .code{font-family:var(--display);font-weight:800;font-stretch:70%;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.barcode{display:inline-block;width:52px;height:12px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 3px,var(--ink) 3px 4px,transparent 4px 7px,var(--ink) 7px 10px,transparent 10px 11px)}
+.label .t{font-family:var(--display);font-weight:800;font-stretch:88%;font-size:19px;line-height:1.15;margin:4px 0}
+.label .s{font-size:14px;color:var(--muted)}
+.stop.boss .node{font-size:28px}
+.stop.boss.open .label{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.stop.boss.open .label .s,.stop.boss.open .label .code{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.stop.boss.open .barcode{background:repeating-linear-gradient(90deg,var(--bg) 0 2px,transparent 2px 3px,var(--bg) 3px 4px,transparent 4px 7px,var(--bg) 7px 10px,transparent 10px 11px)}
+
+/* leitura */
+.modhead{padding:18px 0 10px}
+.modhead .code{font-family:var(--display);font-weight:800;font-stretch:70%;color:var(--muted);display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.segs{display:flex;gap:5px;margin:12px 0 16px}
+.segs i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.segs i.on{background:var(--ink)}
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:20px 18px 18px;position:relative}
+.card .emoji{font-size:40px;line-height:1;margin-bottom:10px}
+.card h3{margin-bottom:12px}
+.card ul,.card ol{padding-left:22px;margin:0 0 12px}
+.card li{margin:5px 0}
+.card b{font-weight:700}
+.tip,.trap{display:block;border-radius:12px;padding:12px 14px;margin:14px 0 2px;font-size:16px}
+.tip{background:color-mix(in srgb,var(--green) 13%,var(--surface));border-left:5px solid var(--green)}
+.trap{background:color-mix(in srgb,var(--red) 12%,var(--surface));border-left:5px solid var(--red)}
+.tip strong,.trap strong{display:block;font-family:var(--display);font-stretch:90%;font-weight:850}
+.src{display:inline-block;font-family:var(--display);font-weight:900;font-stretch:88%;font-size:13px;letter-spacing:.3px;padding:3px 8px;border-radius:6px;vertical-align:1px}
+.src.wi{background:#1E4FC2;color:#fff}
+.src.op{background:#1C1D1F;color:#FFCC00}
+.navrow{display:flex;gap:10px;margin-top:16px}
+.navrow .btn.ghost{flex:0 0 96px}
+.wait-fill{position:absolute;left:0;top:0;bottom:0;background:color-mix(in srgb,var(--yellow) 45%,transparent);width:0}
+
+/* quiz */
+.qtop{display:flex;justify-content:space-between;align-items:center;margin:18px 0 10px;gap:10px}
+.qcount{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:17px}
+.streak{font-family:var(--display);font-weight:800;font-size:16px;color:var(--orange)}
+.qcard{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:18px}
+.qcard .sit{display:inline-block;font-family:var(--display);font-weight:800;font-stretch:90%;font-size:14px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin-bottom:10px}
+.qcard .prompt{font-size:19px;font-weight:700;line-height:1.4;margin-bottom:16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;background:var(--surface-2);border:2px solid var(--line);border-radius:14px;padding:13px 14px;font-size:17px;line-height:1.35;min-height:56px}
+.opt .k{flex:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:15px}
+.opt:not([disabled]):active{border-color:var(--ink)}
+.opt.right{border-color:var(--green);background:color-mix(in srgb,var(--green) 15%,var(--surface))}
+.opt.right .k{background:var(--green);border-color:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 12%,var(--surface))}
+.opt.wrong .k{background:var(--red);border-color:var(--red);color:#fff}
+.opt[disabled]{cursor:default}
+.timer{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin-bottom:14px}
+.timer i{display:block;height:100%;background:var(--ink);width:100%}
+.timer i.hot{background:var(--red)}
+
+/* tela do HH: o momento principal */
+.hh{margin-top:16px;border-radius:18px;border:3px solid var(--edge);background:#0F1113;padding:10px;box-shadow:0 5px 0 var(--edge)}
+.hh-screen{position:relative;border-radius:10px;padding:16px 16px 14px;color:#fff;overflow:hidden}
+.hh.ok .hh-screen{background:#119456}
+.hh.bad .hh-screen{background:#E07B00}
+.hh-screen .scan{position:absolute;left:0;right:0;height:3px;background:rgba(255,255,255,.9);box-shadow:0 0 16px 4px rgba(255,255,255,.7);top:-4px;animation:scan .55s ease-out 1 forwards}
+@keyframes scan{from{top:-4px}to{top:100%}}
+.hh-title{font-family:var(--display);font-weight:900;font-stretch:78%;font-size:30px;line-height:1;margin-bottom:6px}
+.hh-sub{font-weight:700;margin-bottom:10px}
+.hh-exp{background:rgba(0,0,0,.2);border-radius:8px;padding:10px 12px;font-size:16px;line-height:1.45}
+.hh-xp{display:inline-block;margin-top:10px;font-family:var(--display);font-weight:900;font-size:18px;background:#fff;color:#0F1113;border-radius:6px;padding:2px 8px}
+.hh .btn{margin-top:10px;box-shadow:none;border-color:#fff}
+
+/* resultado */
+.result{text-align:center;padding:28px 0 10px}
+.result .big{font-size:72px;line-height:1}
+.result h2{margin:10px 0 8px}
+.scoreline{font-family:var(--display);font-weight:900;font-stretch:75%;font-size:64px;line-height:1;margin:8px 0}
+.gains{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;text-align:left;margin:16px 0}
+.gains div{display:flex;justify-content:space-between;padding:4px 0}
+.gains div+div{border-top:1px dashed var(--line)}
+
+/* certificado */
+.cert{background:var(--surface);border:3px solid var(--ink);border-radius:18px;overflow:hidden;margin-top:18px}
+.cert-in{padding:20px 18px}
+.cert .name{font-family:var(--display);font-weight:900;font-stretch:80%;font-size:34px;line-height:1.05;margin:6px 0 12px;word-break:break-word}
+.cert table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0}
+.cert td{padding:6px 0;border-bottom:1px dashed var(--line)}
+.cert td:first-child{width:62%}
+.cert td:last-child{text-align:right;font-weight:700;padding-left:10px}
+
+.foot{margin-top:28px;text-align:center}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:850;padding:10px 18px;border-radius:999px;z-index:20;font-size:18px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+
+/* ===== comemoração, certificado SUPER PS e brindes ===== */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:40}
+.celebra{min-height:calc(100vh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 0}
+.celebra .trophy{font-size:96px;line-height:1;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12) rotate(-4deg)}}
+.celebra h1{margin:18px 0 10px;font-size:clamp(38px,11vw,54px)}
+.celebra p{font-size:19px;max-width:380px}
+.celebra .btn{max-width:320px;margin-top:22px;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .5s, transform .5s}
+.celebra .btn.show{opacity:1;transform:none;pointer-events:auto}
+.super{background:var(--surface);border:3px solid var(--ink);border-radius:20px;overflow:hidden;margin-top:18px;text-align:center}
+.super .band{background:var(--ink);color:var(--yellow);padding:18px 16px 16px}
+.super .seal{width:112px;height:112px;margin:0 auto 10px;border-radius:50%;background:var(--yellow);color:#1C1D1F;border:4px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-stretch:75%;line-height:.9;box-shadow:0 0 0 4px var(--yellow)}
+.super .seal b{font-size:26px}
+.super .seal span{font-size:15px;letter-spacing:1px}
+.super .band .ttl{font-family:var(--display);font-weight:900;font-stretch:80%;font-size:26px;color:#fff}
+.super .body{padding:18px}
+.super .name{font-family:var(--display);font-weight:900;font-stretch:78%;font-size:34px;line-height:1.05;margin:4px 0 12px;word-break:break-word}
+.super .msg{font-size:17px;text-align:left}
+.super table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0 4px;text-align:left}
+.super td{padding:7px 0;border-bottom:1px dashed var(--line)}
+.super td:last-child{text-align:right;font-weight:700;padding-left:10px}
+.gift-sec{margin-top:24px;text-align:center}
+.gift-sec h2{margin-bottom:6px}
+.arena{margin-top:14px;background:var(--ink);border-radius:18px;padding:10px 8px;border:3px solid var(--edge);position:relative;overflow:hidden}
+.arena::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(255,204,0,.18),transparent 45%),radial-gradient(circle at 80% 90%,rgba(40,86,204,.25),transparent 50%);pointer-events:none}
+.lane{position:relative;height:92px;border-bottom:2px dashed rgba(255,255,255,.12)}
+.lane:last-child{border-bottom:0}
+.orb{position:absolute;top:8px;width:76px;height:76px;border-radius:50%;border:3px solid #fff;padding:0;overflow:hidden;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.45),inset 0 -8px 14px rgba(0,0,0,.25);animation:drift var(--d) ease-in-out var(--dl) infinite alternate}
+.orb .in{font-size:38px;line-height:1;animation:bob 1.6s ease-in-out infinite;display:block}
+.orb img{width:100%;height:100%;object-fit:cover;display:block}
+.orb::after{content:"";position:absolute;top:8px;left:14px;width:22px;height:12px;border-radius:50%;background:rgba(255,255,255,.55);transform:rotate(-25deg)}
+@keyframes drift{from{left:4px}to{left:calc(100% - 84px)}}
+@keyframes bob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+.arena.locked .orb{animation-play-state:paused;opacity:.35}
+.pop-layer{position:fixed;inset:0;z-index:30;background:rgba(10,11,13,.82);display:flex;align-items:center;justify-content:center;padding:20px}
+.pop-orb{position:fixed;border-radius:50%;border:4px solid #fff;overflow:hidden;display:grid;place-items:center;z-index:31;transition:transform 1.3s cubic-bezier(.3,1.4,.5,1)}
+.pop-orb .in{font-size:38px}
+.pop-orb img{width:100%;height:100%;object-fit:cover}
+.pop-orb.shake{animation:shake .45s linear 1}
+@keyframes shake{0%,100%{margin-left:0}20%{margin-left:-8px}40%{margin-left:8px}60%{margin-left:-6px}80%{margin-left:6px}}
+.pop-orb.boom{transition:transform .18s ease-in, opacity .18s ease-in;opacity:0}
+.reveal{position:relative;z-index:32;background:var(--surface);color:var(--ink);border:3px solid var(--edge);border-radius:22px;max-width:420px;width:100%;padding:22px 18px;text-align:center;transform:scale(.3);opacity:0;transition:transform .5s cubic-bezier(.3,1.5,.5,1),opacity .3s;max-height:calc(100vh - 40px);overflow:auto}
+.reveal.in{transform:none;opacity:1}
+.reveal .k{font-family:var(--display);font-weight:800;color:var(--muted);font-size:16px}
+.gift-photo{width:190px;height:190px;margin:12px auto;border-radius:50%;overflow:hidden;border:5px solid var(--yellow);box-shadow:0 0 0 4px var(--edge);background:var(--surface-2);display:grid;place-items:center;font-size:92px}
+.gift-photo img{width:100%;height:100%;object-fit:cover}
+.reveal h2{font-size:32px;margin:4px 0 6px}
+.final-msg{margin-top:14px;text-align:left;background:var(--ink);color:var(--bg);border-radius:14px;padding:14px 16px;font-size:17px;opacity:0;transform:translateY(10px);transition:opacity .6s, transform .6s}
+.final-msg.show{opacity:1;transform:none}
+.final-msg b{color:var(--yellow)}
+.chosen{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:18px;margin-top:14px}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div id="top"></div>
+<main id="app" class="wrap" aria-live="polite"></main>
+
+<script src="config.js"></script>
+<script>
+/* =========================================================
+   CONTEÚDO — baseado na WI SVC-2117-19 (Problem Solver, rev. 50)
+   ========================================================= */
+const MODULES = [
+{
+  id:"m1", emoji:"🦸", badge:"Bombeiro da Operação",
+  title:"Quem é o PS na fila do pão",
+  sub:"Missão, prioridades e as regras da casa",
+  cards:[
+    {e:"🔥", t:"Tu é o bombeiro da operação", b:`O Problem Solver (PS) existe pra <b>resolver os B.O. dos pacotes</b> que aparecem no fluxo, pra operação <b>não travar</b>.<br><br>Papo reto: tem que estar <b>disponível em todas as etapas</b> do processamento, sempre que tiver pacote pra tratar.`},
+    {e:"🥇", t:"Prioridade nº 1, 2 e 3", b:`Pode dar uma força em outra função? <b>Pode</b>, mas só se <b>não tiver nenhum pacote esperando tratativa</b>.<br><br>A prioridade é SEMPRE: <b>tratar e devolver o pacote pro fluxo de envio</b>. Chegou pacote, larga o resto e volta.<br><br>O PS também <b>vai até as ilhas</b> revisar os bakers com problema e trata cada pacote conforme o motivo.`,
+     tip:"Tem que ter gente treinada pra cobrir o PS quando ele faltar. Black Friday não perdoa buraco na escala."},
+    {e:"🧤", t:"A área do PS", b:`Pacotes com <b>SVC incorreto (missorted)</b>, <b>fraude</b>, <b>cancelado</b> e <b>rota cancelada (MLM)</b> já são identificados na <b>etiquetagem</b>, separados no <b>final da esteira</b> e vão pra <b>área do PS</b>.<br><br>Quem separa lá no fim é o <b>goleiro</b>: o REP que fica no final da esteira. Aí o PS analisa o status e segue o procedimento certo.`},
+    {e:"🏠", t:"Regras da casa, sem caô", b:`<ul>
+<li>Pacote <b>nunca no chão</b>: vai em baker cart, gaiola, palete ou outra superfície que proteja.</li>
+<li>A área de tratativa tem que ser <b>sinalizada</b>, com <b>CCTV</b>, <b>fora do fluxo</b> e com <b>mesa dedicada</b>.</li>
+<li>Abrir pacote? Só <b>na área de tratativa</b>. Se a operação não tiver essa área dentro dos requisitos, a abertura é <b>acompanhada por um representante MELI</b>.</li>
+</ul>`,
+     trap:"É EXPRESSAMENTE proibido escrever na embalagem ou no produto. Nada de caneta, nem pra ajudar."},
+    {e:"🙅", t:"Isso aí não abre!", b:`Por segurança, saúde e integridade, <b>não pode abrir nem violar</b>:<ul>
+<li>produto na <b>embalagem primária do fabricante</b></li>
+<li>produto com <b>selo/lacre de segurança</b></li>
+<li><b>CPG</b> (ex: televisor, celular, saco de ração)</li></ul>
+E o pacote tratado volta pro fluxo <b>no mesmo ciclo operacional</b> (menos quando precisa abrir ticket), pra não atrasar a entrega.`},
+    {e:"📋", t:"A planilha de irregularidades", b:`Tem caso que <b>não dá pra registrar no sistema</b> (Módulo de Solução de Problemas): etiqueta duplicada, missorted, volumoso não processável, sem etiqueta ou etiqueta danificada, falsa entrega…<br><br>Esses vão pra <b>planilha de irregularidades</b> com: <b>data de chegada na área do PS</b>, <b>ID</b>, <b>descrição do produto</b> (se não tiver identificação), <b>tratativa feita</b> e <b>comentários</b>.`},
+    {e:"🕳️", t:"Achou pacote perdido? (9.1)", b:`Pacote <b>fora do fluxo</b> (no chão, embaixo da esteira…):<ol>
+<li>Avalia a <b>condição física</b>.</li>
+<li>Consulta o <b>status no Logistics</b>.</li>
+<li>Se tá apto pra entrega e o status é <b>diferente de "para despachar"</b>, <b>atualiza pra "para despachar"</b> pra ele poder ser processado.</li></ol>`},
+    {e:"🎽", t:"O kit e o placar", b:`<b>EPIs:</b> luvas, calçado de segurança, colete/uniforme refletivo e EPIs + kit de contingência pra produto químico.<br><br><b>KPIs que medem teu corre:</b> tempo de aprovação de avaria, qtd de etiquetas brancas, % de adesão de rota sugerida, pacotes tratados, pacotes recuperados, avaria de origem/LH marcada fora do prazo e qtd de missort.`,
+     tip:"No Tableau Fluxo Problem Solver dá pra ver quantos pacotes o PS tratou e o % Repaired (quantos danificados foram recuperados e expedidos)."},
+    {e:"📞", t:"Travou? O caminho da dúvida", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><br><br>Aqui somos <b>DHL operando pro Mercado Livre</b>. Deu dúvida, B.O. ou risco? O caminho é sempre esse, pra PS e pra <b>qualquer colaborador</b>:<ol>
+<li><b>Primeiro pergunta pro coordenador do teu turno.</b></li>
+<li>Ele não soube responder? <b>Aí sim pergunta pro TL.</b></li></ol>
+E nosso time <b>não acessa o JIRA</b>: precisou de chamado, fala com o coordenador.`,
+     tip:"A aprovação de avaria no sistema é do TL MELI (regra da WI). Dúvida sobre ela? Mesmo caminho: coordenador primeiro, TL depois."}
+  ],
+  quiz:[
+    {s:"Quem eu procuro?", q:"Deu um B.O. que tu não consegue resolver sozinho (sistema, equipamento, dúvida de tratativa). Quem tu procura primeiro?", o:["O coordenador do teu turno (se ele não souber, aí o TL)","O TL do Mercado Livre direto","Abre um ticket no JIRA por conta própria","Deixa pra resolver no outro turno"], e:"Aqui somos DHL operando pro Mercado Livre. Primeiro é sempre o coordenador do turno. Se ele não souber responder, aí sim o TL. E JIRA nosso time não acessa."},
+    {s:"Situação", q:"Precisa abrir um pacote, mas a área de tratativa da tua operação não tem CCTV. Como faz?", o:["Abre acompanhado por um representante MELI","Abre rapidinho num canto qualquer","Abre em cima da esteira pra ganhar tempo","Não abre nunca e manda direto pra devolução"], e:"Se a área não atende os requisitos (sinalizada, CCTV, fora do fluxo, mesa dedicada), a abertura tem que ser acompanhada por um representante MELI."},
+    {s:"Pegadinha", q:"Qual desses o PS NÃO pode abrir pra conferir?", o:["Celular na caixa lacrada do fabricante","Tênis numa caixa de papelão do vendedor","Camiseta num envelope plástico do vendedor","Livro embalado em plástico bolha pelo vendedor"], e:"Embalagem primária do fabricante, selo de segurança e CPG (TV, celular, ração) não podem ser violados."},
+    {s:"Situação", q:"Tu quer escrever \"FRÁGIL\" de caneta na caixa pra ajudar a galera do carregamento. Pode?", o:["Não. É expressamente proibido escrever na embalagem ou produto","Pode, se for caneta permanente","Pode, se a coordenação autorizar","Pode, desde que a caixa já esteja avariada"], e:"A WI proíbe escrever na embalagem/produto em qualquer situação ou condição da embalagem."},
+    {s:"Situação", q:"Achou um pacote inteirinho embaixo da esteira. No Logistics o status NÃO é \"para despachar\". O que faz?", o:["Atualiza o status pra \"para despachar\" e ele segue processamento","Joga num baker qualquer e segue a vida","Manda direto pra devolução","Deixa na mesa até o fim do turno"], e:"Pacote achado fora do fluxo: avalia condição física, consulta status e, se estiver apto, atualiza pra \"para despachar\"."}
+  ]
+},
+{
+  id:"m2", emoji:"🏷️", badge:"Detetive de Etiqueta",
+  title:"A treta das etiquetas",
+  sub:"Duplicada, rota cruzada e sem etiqueta",
+  cards:[
+    {e:"👯", t:"Etiqueta duplicada (9.2)", b:`São <b>dois pacotes com o mesmo Shipment ID</b>, ou seja, com a mesma etiqueta.<br><br>Como descobre? Na hora de escanear, o sorter vê o aviso <b>"pacote já conteinerizado"</b> no HH.`},
+    {e:"🤲", t:"Tô com os dois em mãos", b:`<ol><li>Confere no <b>SBO (Shipping Back Office)</b> qual é o produto e <b>quantas unidades</b> foram compradas, e valida o conteúdo <b>abrindo os pacotes</b>.</li>
+<li><b>Comprou 1 unidade?</b> O pacote que bate com o SBO vai pra <b>expedição</b>. O outro vai pra <b>devolução offline ao seller</b> (área de devoluções, identificado como duplicidade).</li>
+<li><b>Comprou mais de 1 e tudo bate?</b> <b>Reacondiciona numa embalagem só</b> (WI de reacondicionamento) e volta pro fluxo.</li></ol>`,
+     trap:"NÃO registra a devolução do duplicado no sistema! Qualquer mudança de status cai no pacote que vai pro buyer (é o mesmo ID). Controle na planilha com status \"Pacote duplicado\"."},
+    {e:"☝️", t:"Só tô com um deles", b:`Aí não dá pra cravar na hora que é duplicidade. Então:<ol>
+<li>Confere o conteúdo no <b>SBO</b>.</li>
+<li><b>Bate com o pedido?</b> Vai pra <b>expedição</b> e entrega pro buyer.</li>
+<li><b>Não bate?</b> <b>Devolução offline ao seller</b>, identificado como duplicidade.</li></ol>`,
+     tip:"Duplicado fica segregado e identificado na área de devolução até a devolução física acontecer."},
+    {e:"🔀", t:"Etiqueta de rota cruzada (9.4)", b:`É quando o pacote tá com a <b>etiqueta de rota de outro pacote</b>. Aparece na <b>pesca</b> ou na <b>conteinerização</b>.<br><br><b>Como pegar:</b> compara o <b>ID da etiqueta de rota</b> com o <b>ID da Shipping Label</b>. Não bateu? É cruzada.<br><br><b>Como resolver:</b> segrega, <b>remove ou rasura a etiqueta de rota errada</b> e manda pra <b>mesa de etiquetagem</b> reprocessar.`},
+    {e:"🩹", t:"Sem etiqueta ou etiqueta zoada (9.8)", b:`<b>Dá pra ler o número?</b> Entra no <b>Logistics</b>, acha o <b>Shipment ID</b>, <b>reimprime</b> em "Gerenciamento de pacotes" e devolve pro <b>sorting</b>.<br><br><b>Não dá pra ler?</b> Segrega na <b>área de inventário</b> de pacotes sem identificação e avisa o <b>inventário</b>. Se eles identificarem, o PS reimprime e manda pro sorting.`,
+     tip:"Planilha: \"Sem etiqueta\" (com descrição do produto) ou \"Etiqueta avariada\" quando conseguiu reimprimir. Se nunca identificar, depois do prazo da WI vai pra Salvados (no Brasil)."}
+  ],
+  quiz:[
+    {s:"Bipou", q:"O sorter escaneou e o HH mostrou \"pacote já conteinerizado\". Qual é a treta?", o:["Etiqueta duplicada: dois pacotes com o mesmo Shipment ID","Etiqueta branca, pacote sem rota","Pacote cancelado pelo cliente","Missort de outro Commercial Carrier"], e:"O aviso \"pacote já conteinerizado\" é o sinal de dois pacotes com a mesma etiqueta."},
+    {s:"Situação", q:"Tá com os dois duplicados na mão. O SBO diz que a compra foi de 1 unidade. E o pacote que NÃO bate com o SBO?", o:["Devolução offline ao seller, identificado como duplicidade, e registra na planilha","Registra a devolução no sistema normalmente","Manda os dois pro buyer, na dúvida","Descarta o que não bateu"], e:"O que bate vai pra expedição. O outro vai pra devolução offline, com controle manual na planilha \"Pacote duplicado\"."},
+    {s:"Por quê?", q:"Por que NÃO pode registrar no sistema a devolução do pacote duplicado?", o:["Porque a mudança de status afeta o pacote que vai pro buyer, que tem o mesmo ID","Porque o sistema não tem opção de devolução","Porque só o Site Leader pode registrar devolução","Porque duplicado sempre vai pra destruição"], e:"Os dois pacotes compartilham o Shipment ID. Mexeu no status de um, mexeu no do outro."},
+    {s:"Detetive", q:"Como tu confirma que um pacote tá com etiqueta de rota cruzada?", o:["Compara o ID da etiqueta de rota com o ID da Shipping Label","Olha se a caixa está amassada","Pesa o pacote na balança","Pergunta pro motorista"], e:"Se o ID da etiqueta de rota não bate com o da Shipping Label, é cruzada. Aí remove/rasura a errada e manda pra etiquetagem."},
+    {s:"Situação", q:"Etiqueta rasgada, mas dá pra ler o número. Qual o corre?", o:["Acha o Shipment ID no Logistics, reimprime e devolve pro sorting","Escreve o número à mão na caixa","Manda pra Salvados direto","Deixa no inventário e esquece"], e:"Deu pra ler: reimprime em Gerenciamento de pacotes e volta pro sorting. Escrever na caixa é proibido!"}
+  ]
+},
+{
+  id:"m3", emoji:"🚦", badge:"Roteirista Raiz",
+  title:"Etiqueta branca e vermelha",
+  sub:"Pacote sem rota, sugestão no Logistics e a escadinha",
+  cards:[
+    {e:"⚪", t:"Etiqueta branca = sem rota", b:`São pacotes que foram <b>excluídos da rota</b> ou que <b>não receberam o status "Shipped"</b> desde o <b>Cross Docking (XD)</b> ou <b>Fulfillment (FBM)</b>.<br><br>Eles são segregados e <b>voltam pra mesa de etiquetagem</b>. Na segunda etiquetagem, sai uma <b>rota sugerida</b> impressa automaticamente, ou a identificação <b>"Caso PS - Área distante"</b> ou <b>"Caso PS - Status Inválido"</b>.`},
+    {e:"🗺️", t:"Área distante x Status inválido", b:`<b>Zona/Área distante</b> com entrega prometida <b>pro mesmo dia</b>: o PS <b>sugere a rota manualmente</b> e manda pra etiquetagem. A etiqueta com rota sai automática.<br><br><b>Status Inválido</b>: pacote que precisa de tratativa (devolução, avariado, destruição, stale, aguardando BO, confiscado, aguardando documentação). O <b>goleiro</b> separa, vai pra <b>área do PS</b> e o PS trata conforme o status.`},
+    {e:"💻", t:"Sugestão de rota em massa no Logistics", b:`<ol>
+<li>No módulo <b>"Solução de problemas"</b>, vê se os pacotes já estão registrados.</li>
+<li><b>Não estão</b> (o inbound não foi no mesmo dia)? Faz <b>upload em massa</b>: "etiqueta branca" > "upload em massa" > sobe o <b>CSV com os IDs</b> (digitados manualmente) > "importar".</li>
+<li><b>Já estão</b>? Pula o upload e vai direto pra sugestão.</li>
+<li>"etiqueta branca" > <b>"sugestão de rota"</b> > escolhe o tipo de endereço > "aplicar" > <b>"calcular rota ideal"</b>. Aparece a <b>mensagem verde</b> de sucesso.</li></ol>`,
+     tip:"Precisa mudar? Nos detalhes do pacote tem \"alterar rota\" > coloca a nova > \"aceitar\". Fica registrado na rastreabilidade. Depois disso, pacote vai pra mesa de etiquetagem."},
+    {e:"📍", t:"Endereço errado e tipo de caso", b:`No painel de Problem Solver do Logistics dá pra ver todos os casos abertos.<br><br><b>Endereço incorreto:</b> seleciona o caso > "detalhes do caso" > <b>"corrigir endereço"</b> (em azul) > corrige > salvar.<br><br><b>Tipo de caso errado:</b> em "dados do problema", escolhe o motivo certo > salvar.`},
+    {e:"🪜", t:"A sugestão falhou. E agora? A escadinha", b:`<b>Degrau A:</b> dá pra despachar no <b>próximo ciclo</b> (área atendida)? Deixa com status <b>"at station - sorting"</b> que roteiriza sozinho.<br><br><b>Degrau B:</b> não tem próximo ciclo que atenda e a promessa é <b>pro mesmo dia</b>? <b>Conteinerização manual</b> no HH: Solução de problemas > gerar casos > escaneia o pacote > <b>"Conteinerizar pacote"</b> > escaneia o <b>QR do contêiner</b> > tela verde > coloca no baker.<br><br><b>Degrau C (exceção):</b> nada disso rolou? <b>Inclusão manual</b> na rota do motorista.`},
+    {e:"📲", t:"Inclusão manual na rota do driver", b:`Só depois de <b>falhar a sugestão E a conteinerização</b>, e quando não dá pra esperar o próximo ciclo.<ol>
+<li>Abre o <b>app do driver</b> com a rota pronta pra iniciar.</li>
+<li>Toca no <b>botão azul</b> no canto inferior direito.</li>
+<li>Escaneia o <b>QR do pacote</b>.</li>
+<li>Espera a <b>tela verde</b>. Não apareceu? Repete.</li></ol>`,
+     trap:"Esse pacote fica SEPARADO num baker/carrinho/palete identificado \"ROTA BRANCA\". O responsável pela carga (UTR ou OTR) garante que ele só sai depois de adicionado na rota do motorista."},
+    {e:"🔴", t:"Etiqueta vermelha: segue o baile", b:`Etiqueta vermelha escrito <b>"produto de devoluções apto para envio"</b> = <b>segue o fluxo normal</b>, mesmo com dano visível.<br><br>Por quê? O <b>Fulfillment avisou o comprador</b> da condição e ele <b>aceitou receber assim</b>. O FBM categoriza (DV, NI, NA, DI, INP) e o Transporte não interfere.<br><br>Isso reduz o <b>Stale Damage</b> (pagamentos por perda, dano, roubo ou atraso) e melhora a experiência do vendedor.`}
+  ],
+  quiz:[
+    {s:"Conceito", q:"O que é um pacote com etiqueta branca?", o:["Pacote sem rota: excluído da rota ou sem status \"Shipped\" desde o XD/FBM","Pacote que já foi entregue","Pacote avariado aguardando aprovação","Pacote de outro Commercial Carrier"], e:"Etiqueta branca = sem rota. Ele volta pra mesa de etiquetagem pra ganhar rota."},
+    {s:"Logistics", q:"Pacotes com etiqueta branca não aparecem no módulo porque o inbound não foi feito no mesmo dia. Primeiro passo?", o:["Upload em massa dos IDs via CSV","Calcular a rota ideal direto","Inclusão manual na rota do driver","Mandar pra devolução"], e:"Não registrado = sobe o CSV pelo \"upload em massa\". Já registrado = pula direto pra sugestão de rota."},
+    {s:"Escadinha", q:"A sugestão de rota falhou, mas o próximo ciclo atende a área do pacote. O que faz?", o:["Deixa com status \"at station - sorting\" pra roteirizar automático","Faz inclusão manual no app do driver na hora","Conteineriza manual em qualquer rota","Manda pra Salvados"], e:"Degrau A: tem próximo ciclo que atende? Deixa \"at station - sorting\". Os outros degraus são só se não der."},
+    {s:"Situação", q:"Pacote foi incluído manualmente na rota do motorista. Onde ele fica até sair?", o:["Segregado em baker/palete identificado \"ROTA BRANCA\"","Misturado com os outros pacotes da rota","Na área do PS","No chão ao lado do veículo"], e:"Separado e identificado \"ROTA BRANCA\", e o UTR/OTR garante que só sai depois de adicionado na rota."},
+    {s:"Pegadinha", q:"Chegou um pacote amassadinho com etiqueta vermelha \"produto de devoluções apto para envio\". O que faz?", o:["Segue o fluxo normal, o comprador já aceitou receber assim","Registra avaria e segura o pacote","Manda pra devolução ao seller","Abre pra conferir o produto"], e:"Etiqueta vermelha = aprovado pelo FBM. Segue o fluxo mesmo com dano visível."}
+  ]
+},
+{
+  id:"m4", emoji:"🩹", badge:"Doutor da Caixa",
+  title:"Avaria parte 1: bate o olho e conserta",
+  sub:"Tipos de dano, reparo e quando detecta",
+  cards:[
+    {e:"🍷", t:"Primeiro: o que tem dentro?", b:`<b>Frágeis:</b> vidro ou com vidro, produto com tela, cerâmica, torneira, eletrodoméstico.<br><b>Líquidos:</b> bebida, óleo, perfume, material de limpeza.<br><b>Outros:</b> o resto, com menor risco de dano.`},
+    {e:"🩹", t:"Dano superficial leve", b:`Só a <b>embalagem externa</b> tá zoada (rasgo ou abertura).<ul>
+<li>Usa <b>só fita MELI ou fita gorilla</b>.</li>
+<li>Repara <b>sem abrir</b> ou reacondiciona, não importa a origem do dano.</li>
+<li>Pacote <b>volta pro processo</b> e é despachado.</li>
+<li><b>Registra o caso de avaria</b> no módulo de Solução de Problemas no Logistics (é obrigatório!).</li></ul>`},
+    {e:"💧", t:"Dano com possível avaria no produto", b:`Caixa <b>molhada, amassada, aberta ou quebrada</b>.<ol>
+<li>Faz o inbound/escaneia na etiquetagem.</li>
+<li><b>Registra</b> ID e dados no módulo de Solução de Problemas.</li>
+<li>Confere o conteúdo no <b>SBO</b>.</li>
+<li><b>SEMPRE tenta reparar ou reacondicionar</b> antes de declarar "Danificado", seja qual for a origem ou o momento.</li></ol>`,
+     tip:"Não deu pra reparar? Registra do mesmo jeito (cria o caso de avaria)."},
+    {e:"✅", t:"Despacha ou não despacha?", b:`<b>Despacha (reparado):</b> produto sem dano que bate com o SBO/Gerenciamento de Pacotes, e <b>entregas parciais</b> (mais de 1 produto e nem todos danificados).<br><br><b>NÃO despacha:</b> perdeu conteúdo (líquido, grãos, saco de parafusos), <b>caixa original do produto avariada</b>, falta coisa lá dentro por causa do dano, <b>produto quebrado</b>.`},
+    {e:"⏱️", t:"Quando o dano apareceu?", b:`<b>Na descarga (inbound):</b> o REP separa em bins ou na "área de pacotes com problemas" pro PS tratar.<br><br><b>Depois da descarga</b> (sorting, despacho…): se não passou na etiquetagem, <b>leva lá e escaneia</b> (não precisa colar etiqueta), depois área de problemas.<br><br><b>No RTS</b> (voltou da rota): o REP de RTS muda o status pra <b>"Solução de problemas"</b> e segue o fechamento da rota. O PS avalia e tenta reparar. Reparou? Status <b>"para despachar"</b>.`},
+    {e:"⛑️", t:"Segurança em primeiro lugar", b:`<ul>
+<li>Cerâmica pesada (tipo <b>vaso sanitário</b>): manuseio <b>sempre em 2 pessoas</b>.</li>
+<li>Produto avariado expondo partes perigosas? <b>Isola</b> e chama a <b>equipe de Safety</b>.</li>
+<li>Abrindo caixa avariada, atenção: pode ter <b>material cortante ou químico</b>. Usa as luvas certas (químico-mecânico / anticorte).</li>
+<li>Viu risco grave? <b>Avisa a coordenação do turno na hora.</b></li></ul>`},
+    {e:"🎨", t:"Lata de tinta (MLB, 9.21)", b:`<b>Lata inteira, só a embalagem fraca:</b><ol>
+<li>Registra o <b>repacking</b> no módulo de Solução de Problemas.</li>
+<li>Reforça a <b>tampa</b> com fita adesiva ou fita de arquear.</li>
+<li>Envolve tudo em <b>plástico filme</b>.</li>
+<li>Coloca o <b>pictograma</b> de armazenamento.</li>
+<li>Manda pro <b>sorting de volumoso</b>.</li></ol>
+<b>Lata vazou e sujou os vizinhos?</b> Avalia <b>produto por produto</b> antes de declarar avaria.`}
+  ],
+  quiz:[
+    {s:"Situação", q:"Caixa com a embalagem externa rasgada, produto 100%. O que tu faz?", o:["Repara com fita MELI ou gorilla, registra o caso no módulo e volta pro despacho","Repara com fita crepe e nem precisa registrar","Manda pra devolução por segurança","Troca a etiqueta e escreve \"reparado\" na caixa"], e:"Dano superficial leve: só fita MELI/gorilla, registro obrigatório no módulo de Solução de Problemas, e segue o fluxo."},
+    {s:"Situação", q:"Chegou do RTS uma caixa molhada. Antes de declarar \"Danificado\", o que é obrigatório?", o:["Tentar reparar ou reacondicionar, independente da origem","Esperar alguém decidir por ti","Descartar o pacote de uma vez","Devolver pro motorista entregar amanhã"], e:"Regra de ouro: sempre tentar recuperar antes de declarar danificado."},
+    {s:"Qual desses?", q:"Qual desses pacotes NÃO pode ser despachado?", o:["Saco de parafusos furado que perdeu parte do conteúdo","Caixa externa reparada com produto intacto","Pacote que bate certinho com o SBO","Pacote reacondicionado conforme a WI"], e:"Perdeu conteúdo (líquido, grãos, parafusos) não segue pra entrega."},
+    {s:"Situação", q:"Pacote se danificou no sorting e nunca passou pela etiquetagem. Qual o caminho?", o:["Leva na etiquetagem e escaneia (sem colar etiqueta), depois área de problemas","Vai direto pro baker da rota","Manda pra devolução sem registrar","Deixa no chão perto da esteira pro PS achar"], e:"Após a descarga: garante o escaneamento na etiquetagem e separa pro PS."},
+    {s:"MLB", q:"Lata de tinta inteira, só a embalagem tá fraquinha. Qual a sequência?", o:["Registra repacking, reforça tampa, envolve em plástico filme, põe pictograma e manda pro sorting de volumoso","Declara avaria e manda pra destruição","Abre a lata pra ver se tá tudo ok","Manda pro sorting normal sem mexer"], e:"É o padrão da LUP de tintas: reforça, filma, pictograma, volumoso."}
+  ]
+},
+{
+  id:"m5", emoji:"🕵️", badge:"CSI da Avaria",
+  title:"Avaria parte 2: origem, destino e aprovação",
+  sub:"Registro no HH, quem causou, pra onde vai",
+  cards:[
+    {e:"📱", t:"Registrando no HH", b:`<ol>
+<li>Processamento SVC > <b>"Solução de problemas"</b> > <b>"Gerar caso"</b>.</li>
+<li>Escaneia o pacote > <b>"Registrar dano"</b>.</li>
+<li>Define a <b>origem</b> do dano.</li>
+<li>Define o <b>motivo</b>.</li>
+<li>Define o <b>tipo</b>.</li>
+<li><b>Tira uma foto focada na avaria</b>.</li></ol>`,
+     tip:"Caso de avaria sem reparo vai automaticamente pro status \"Solução de Problemas\" até o TL MELI aprovar no sistema."},
+    {e:"🧭", t:"Origem: quem causou? (parte 1)", b:`<ul>
+<li><b>Service Center:</b> manuseio errado <b>dentro do SVC</b> (arremesso, pesado em cima de frágil, queda, ignorar pictograma).</li>
+<li><b>Defeito na origem:</b> embalagem danificada <b>dentro da HU</b>, mas a HU e os pacotes em volta estão ok.</li>
+<li><b>Carga mal acondicionada:</b> erro na <b>montagem da HU</b> (palete quebrado, pesado em cima de leve, passou do limite).</li>
+<li><b>HU mal acomodada:</b> erro no <b>carregamento do caminhão</b> (amarração errada ou incompleta).</li></ul>`},
+    {e:"🚛", t:"Origem: quem causou? (parte 2)", b:`<ul>
+<li><b>Line Haul:</b> trajeto do LH entre origem e destino (velocidade, acidente, baú com goteira, furo, chão irregular).</li>
+<li><b>Line Haul XP:</b> viagem do LH pro XPT, ou do XPT/PLACE pro SVC.</li>
+<li><b>Rota:</b> aconteceu na last mile.</li>
+<li><b>Vendedor:</b> embalagem ruim do seller/Full (tipo garrafa de vinho numa sacola).</li></ul>`},
+    {e:"⏰", t:"Regras de ouro da origem", b:`<ul>
+<li><b>Avaria de origem</b> (defeito de origem, carga mal acondicionada, HU mal acomodada, LH ou seller): o pacote <b>não pode ter histórico de conteinerização</b>. Tem que ser pego até a etiquetagem.</li>
+<li><b>Rota ou LH XP:</b> pode ter histórico até o RTS, mas <b>sem nova conteinerização</b> depois que voltou.</li>
+<li><b>Service Center:</b> pode ter qualquer etapa.</li></ul>`,
+     trap:"Prazo: registrar em até 24h da chegada na operação. Passou disso, a avaria vira Service Center automaticamente (a conta cai na nossa casa)."},
+    {e:"🏷️", t:"Tipo do dano", b:`<ul>
+<li><b>Embalagem:</b> dano na <b>embalagem primária</b> (a caixa original). Vai pra devolução/doação/destruição.</li>
+<li><b>Produto:</b> dano direto no produto. Mesmo caminho.</li>
+<li><b>Produto líquido:</b> dano no líquido. Mesmo caminho.</li>
+<li><b>Fitas Meli e/ou embalagem:</b> dano só na <b>embalagem secundária</b>, reacondicionado, produto ok. Vai pra <b>reparação</b>, <b>não é dano final</b>.</li></ul>`},
+    {e:"🟩", t:"As telas do HH", b:`<b>Tela verde:</b> reparou, volta pro <b>sorting</b> e segue o envio.<br><br><b>Tela de seleção:</b> não deu pra reparar tudo. Escolhe: <b>Entrega parcial</b>, <b>Doação</b>, <b>Devolução</b> ou <b>Destruição</b>.`,
+     trap:"No Brasil (MLB) NÃO existe doação. Tudo que seria \"doação\" vai pro fluxo de Salvados."},
+    {e:"✂️", t:"Entrega parcial", b:`Vale quando o pacote tem <b>mais de 1 item</b> e <b>nem todos estão danificados</b>.<ul>
+<li><b>Pack conta como 1 item</b> (1 pack de cerveja = 1 item).</li>
+<li>Os avariados não podem passar de <b>40% dos itens</b> ou <b>35% do GMV</b> (valor total).</li>
+<li><b>Tela verde:</b> parcial ok. Reembala os bons e clica <b>"Já reacomodei o pacote"</b>. Avariados vão pra destruição.</li>
+<li><b>Tela laranja:</b> regra não bateu, escolhe outro destino.</li></ul>`,
+     tip:"Proibido separar o pedido sem registro no sistema. E precisa de aprovação ANTES do pacote sair pra rota: aciona a coordenação do turno."},
+    {e:"🗑️", t:"Destruição e aprovação do TL MELI", b:`<b>Destruição</b> é só pra <b>líquidos ou CPG avariados</b> ou produto que dá <b>risco no manuseio</b>. O resto vai pra <b>Salvados</b>. Na dúvida, aciona o <b>SHE</b>.<br><br>Ex: caixa com 6 garrafas, 1 quebrada: <b>só a quebrada</b> é descartada, as 5 seguem.<br><br><b>Aprovação:</b> TL MELI aprova em <b>até 24h</b> (mesmo dia). No MLB, se a foto não mostra bem a avaria ou o produto custa <b>mais de 350 USD</b>, o TL MELI avalia <b>no piso</b>, na área do PS.<br><br><b>Dúvida sobre a aprovação?</b> Primeiro o <b>coordenador do teu turno</b>. Se ele não souber, aí o TL.`,
+     tip:"Caso \"pendente\" (sem destino final) = cancela e refaz pelo HH."}
+  ],
+  quiz:[
+    {s:"CSI", q:"Na descarga do LH, uma caixa amassada DENTRO de uma HU intacta, com os vizinhos perfeitos. Qual a origem?", o:["Defeito na origem","Service Center","Line Haul","Rota"], e:"HU e pacotes em volta ok, só aquela embalagem danificada: a avaria aconteceu antes da montagem da HU. Defeito na origem."},
+    {s:"Prazo", q:"Avaria de origem registrada 3 dias depois do pacote chegar. O que rola?", o:["Vira avaria Service Center automaticamente","Nada, o prazo é de 7 dias","O sistema bloqueia o registro pra sempre","Vira avaria do vendedor"], e:"Registro em até 24h da chegada. Passou, conta como Service Center."},
+    {s:"Conta rápida", q:"Pedido com 5 itens (nenhum pack), 1 quebrado e de valor baixo. Qual destino?", o:["Entrega parcial: os 4 bons pro buyer e o quebrado pra destruição após aprovação","Devolução do pacote inteiro","Destruição do pacote inteiro","Separa os itens na mão sem registrar e manda"], e:"1 de 5 = 20%, abaixo do limite de 40% dos itens (e o valor é baixo). Parcial registrada no sistema e aprovada antes de sair."},
+    {s:"MLB", q:"No Brasil, pacote avariado sem risco, que não segue pra entrega nem devolução. Vai pra \"doação\"?", o:["Não, no MLB não tem doação: vai pro fluxo de Salvados","Sim, doação normal","Vai pra destruição","Volta pro motorista"], e:"A WI reforça: doação não se aplica ao MLB. Tudo vai pro fluxo de Salvados."},
+    {s:"Aprovação", q:"Caso de avaria no MLB, produto de 500 USD com foto nítida. O TL MELI pode aprovar só olhando a foto?", o:["Não, acima de 350 USD tem que avaliar no piso, na área do PS","Pode, a foto tá boa","Pode, desde que aprove em 48h","Só se o PS assinar junto"], e:"Acima de 350 USD (ou foto que não mostra bem a avaria), avaliação no piso antes de aprovar."}
+  ]
+},
+{
+  id:"m6", emoji:"🔎", badge:"Caçador de Missort",
+  title:"Perdidos, errados e cancelados",
+  sub:"Missort, faltantes, cancelados, falso entregue, vazios",
+  cards:[
+    {e:"🧳", t:"Missort: chegou no lugar errado (9.5)", b:`Pacote ou HU que chegou no <b>nosso SVC</b> mas é de <b>outra operação</b> ou de <b>outro Commercial Carrier</b>.<br><br><b>Operação híbrida com Reconexão ativa:</b> recolhe no goleiro e manda <b>direto pra área de devolução</b>. O módulo de devolução avisa se reconecta ao XD.<br><br><b>2 SVCs no mesmo galpão?</b> Manda direto pra <b>recepção do SVC certo</b>.`},
+    {e:"📦", t:"Missort sem Reconexão", b:`<ul>
+<li>Na etiquetagem ganha <b>"Caso PS - SVC Incorreto"</b> e o PS recolhe no fim da esteira.</li>
+<li>HU cruzada aparece no <b>FOS</b> no recebimento.</li>
+<li>PS avisa o <b>inventário</b> e manda pra <b>área de inventário</b>.</li>
+<li>Pra devolver, faz o <b>recebimento sistêmico</b>.</li>
+<li>Inventário decide: vai pro destino certo ou devolução.</li>
+<li><b>Outro Commercial Carrier: devolução.</b></li></ul>`,
+     tip:"Planilha: \"Missort SVC\" ou \"Missort CC\"."},
+    {e:"🧾", t:"Lista de faltantes (9.9)", b:`Logistics > <b>Operação</b> > <b>Distribuição</b> > <b>Monitor de Separação</b> > <b>Baixar faltantes</b> > "baixar lista".<br><br>Vem um CSV com: ID, rota, parada, ponto, <b>horário de inbound</b> e dimensões.<br><br><b>Durante o sorting:</b> investiga os pacotes com <b>mais de 1h</b> entre o inbound e a hora que tu baixou a lista. Sorting com <b>menos de 2h</b>? Faz pelo menos <b>uma busca</b> durante.<br><br><b>Pós-sorting:</b> direciona <b>auditoria de contêineres</b> em todos os bakers das rotas com faltantes.`},
+    {e:"🚫", t:"Cancelados (9.10 e 9.19)", b:`<b>"Caso PS - Fraude":</b> recolhe e leva pra <b>área de devoluções</b>.<br><br><b>"Caso PS - Cancelado"</b> (cliente cancelou antes de sair pra rota LM): na etiquetagem o status vira <b>"at station claimed"</b>, induz na esteira pra segregar no fim. Aparece em "para devolução".<br><br><b>"Caso PS - Rota cancelada" (MLM):</b> segue o fluxo de cancelado, ou seja, <b>devolução</b>.`},
+    {e:"👻", t:"Falso entregue que tá no SVC (9.11)", b:`Status <b>"entregue"</b> no sistema, mas o pacote tá <b>fisicamente no SVC</b>. Geralmente o motorista marcou errado no app e devolveu no RTS. O sistema aponta como <b>intruso</b> (no RTS ou no inventário).<ul>
+<li>Separa e manda pra <b>devolução à origem</b>.</li>
+<li>Compartilha a lista com o time de <b>LM</b> pra dar feedback aos motoristas.</li></ul>`,
+     trap:"NÃO devolve pro motorista entregar outro dia e NÃO manda pra rezagos."},
+    {e:"🫥", t:"Pacote vazio e DEVOS Coletas", b:`<b>Parece vazio? (9.17)</b> Não segue o fluxo. <b>Separa e manda pro Help Desk</b>, e segue a WI Fluxo de Pacotes de Fraudes (Forward).<br><br><b>DEVOS Coletas com erro "Enviar para PS" (9.20):</b><ol>
+<li>Looker, aba <b>RAW Data</b>.</li>
+<li>No "Shp Forward" digita o Shipment ID de envio.</li>
+<li>Pega o <b>Shipment ID de Devolução</b> no "Shp Devolución".</li>
+<li>TMS desktop: Operações > Etiquetagem > código da impressora > <b>imprime a etiqueta de devolução</b>.</li></ol>`}
+  ],
+  quiz:[
+    {s:"Situação", q:"Operação sem Reconexão ativa recebeu um pacote de outro Commercial Carrier. Destino?", o:["Devolução, registrando na planilha como \"Missort CC\"","Entrega normal, já que tá aqui","Destruição","Deixa no goleiro até alguém buscar"], e:"Pacote de outro Commercial Carrier vai pra devolução, com registro \"Missort CC\"."},
+    {s:"Faltantes", q:"Tu baixou a lista de faltantes às 09:35. Qual desses pacotes tu investiga?", o:["Inbound às 08:10","Inbound às 09:30","Inbound às 09:05","Inbound às 08:50"], e:"Investiga quem tem mais de 1h entre o inbound e o download. Só o das 08:10 passou de 1h (1h25)."},
+    {s:"Situação", q:"No RTS, apareceu como intruso um pacote com status \"entregue\". O que faz?", o:["Separa pra devolução à origem e avisa o time de LM","Devolve pro motorista entregar amanhã","Manda pra rezagos","Muda o status e põe numa rota nova"], e:"Falso entregue: devolução à origem + feedback pro LM. Nunca volta pro motorista e nunca vai pra rezagos."},
+    {s:"Bipou", q:"Pacote saiu da etiquetagem com \"Caso PS - Fraude\". Pra onde vai?", o:["Área de devoluções","Rota normal","Área de inventário pra investigar","Help Desk pra abrir"], e:"Cancelado por fraude: recolhe e leva pra área de devoluções."},
+    {s:"Situação", q:"Um pacote tá levinho demais e parece vazio. O que tu faz?", o:["Separa e manda pro Help Desk, seguindo o fluxo de fraudes","Abre em cima da esteira pra conferir","Deixa seguir o fluxo normal","Descarta pra não dar problema"], e:"Pacote aparentemente vazio não segue o fluxo regular: vai pro Help Desk (WI Fluxo de Pacotes de Fraudes)."}
+  ]
+},
+{
+  id:"m7", emoji:"🚚", badge:"Dono do Dispatch",
+  title:"Despacho, sorting e o kit completo",
+  sub:"Desconteinerização, volumosos e sistemas",
+  cards:[
+    {e:"🔄", t:"Antes de desconteinerizar (9.14)", b:`Primeiro, fala com o <b>dispatcher</b>: dá pra passar o pacote pra <b>outro veículo da mesma transportadora</b>? Se der, os <b>próprios drivers transferem</b>, sem desconteinerizar.<br><br>Isso diminui o <b>backlog</b> e evita criar rota extra com <b>SPR baixo</b>.`,
+     tip:"Na expedição tem que ter gaiolas identificadas por motivo: danificado, fora de área, mal geolocalizado e não cabe no veículo (e volumoso, se der). Obrigatório no MLB e MLM."},
+    {e:"☝️", t:"Desconteinerização única", b:`Solução de problemas > escaneia o QR (ou digita) > gerar caso > <b>"Desconteinerizar pacote"</b> > escolhe o motivo:<ul>
+<li><b>Danificado:</b> registra o dano e leva pra zona de PS.</li>
+<li><b>Fora de área:</b> pronto pra roteirizar de novo, vai pra área do próximo ciclo.</li>
+<li><b>Mal geolocalizado:</b> <b>corrige o endereço antes</b> de roteirizar, leva pra zona de PS.</li>
+<li><b>Não cabe no veículo:</b> pronto pra roteirizar, área do próximo ciclo.</li></ul>`,
+     tip:"Status fraude ou cancelado? O módulo exclui sozinho, sem pedir motivo."},
+    {e:"🧺", t:"Desconteinerização em massa", b:`Solução de problemas > <b>"Desconteinização em massa"</b> > motivo (<b>não cabe no veículo</b> ou <b>negócio de destino fechado</b>) > escaneia todos > "Desconteinizar".<ul>
+<li><b>Tela verde:</b> sucesso.</li>
+<li><b>Tela laranja:</b> ainda tem pacote pra tirar. "Mostrar detalhes" > tentar de novo ou finalizar.</li>
+<li><b>Tela vermelha:</b> segue via "Gerar caso".</li></ul>`,
+     trap:"Só pode desconteinerizar em dois momentos: antes do motorista escanear o QR dele, ou quando o app do motorista indica que ele pode começar a rota (e antes dele sair do armazém)."},
+    {e:"🌀", t:"Sorting dinâmico (9.16)", b:`<b>Baker visível no ciclo mas fechado e vazio:</b> dá pra <b>liberar</b> no sistema e liberar a posição do layout. <b>Não tem volta.</b><br><br><b>No show na rota LM:</b> esvazia os bakers garantindo status <b>"Na estação"</b>. O QR da rota fica indisponível por <b>48h</b> após a última movimentação: usa a liberação.<br><br><b>Rota não otimizada:</b> só re-otimiza <b>antes de iniciar o sorting</b>. Se algum pacote já bipou, cria rota nova <b>mudando o prefixo</b>.`},
+    {e:"🛋️", t:"Volumosos (9.7)", b:`<ol>
+<li>Confirma com <b>fita métrica e balança</b> que passou mesmo do limite.</li>
+<li>Vê com a equipe de <b>OTR</b> se dá pra entregar. Não deu? <b>Devolução</b>.</li>
+<li>Planilha: <b>"Acima dos limites processáveis"</b>. No MLB, AppSheet "Excede as dimensões permitidas".</li></ol>
+Carregando sozinho, o <b>peso máximo</b> é: <b>15 kg</b> pra pacote no chão e <b>20 kg</b> pra pacote acima de 75 cm do chão. Passou disso: <b>2+ pessoas ou equipamento</b>.`,
+     trap:"Só colaborador treinado em volumosos pode manusear volumoso!"},
+    {e:"🧰", t:"O resto do kit", b:`<ul>
+<li><b>Impressora/HH deu pau (9.12):</b> PS apoia o REP. Não resolveu? <b>Aciona a coordenação do turno</b> (nosso time não abre JIRA).</li>
+<li><b>Contingência (9.13):</b> sem energia, sem internet ou sistema fora: <b>WI de Contingência SVC</b>.</li>
+<li><b>CTe, MDFe, NFe (9.15):</b> Shipping Backoffice > Gestão Fiscal > Documentos (acesso pelo Shield). Por Route ID baixa um ZIP. Falhou 2x? <b>Aciona a coordenação do turno</b>.</li>
+<li><b>Embalagem com oportunidade (9.18, MLB):</b> frágil sem proteção, embalagem insegura, mas <b>produto sem dano</b>: AppSheet "Embalagem inadequada".</li></ul>`}
+  ],
+  quiz:[
+    {s:"Situação", q:"Um pacote não cabe no veículo. Antes de desconteinerizar, o que tu verifica?", o:["Com o dispatcher, se dá pra passar pra outro veículo da mesma transportadora","Se o motorista topa levar no colo","Se dá pra criar uma rota extra na hora","Nada, desconteineriza direto"], e:"Transferir entre drivers da mesma transportadora evita backlog e rota extra com SPR baixo."},
+    {s:"Motivo", q:"Desconteinerizou com motivo \"Mal geolocalizado\". Qual o próximo passo?", o:["Corrigir o endereço antes de roteirizar de novo e levar pra zona de PS","Colocar direto na área do próximo ciclo","Mandar pra devolução","Registrar avaria"], e:"Enquanto o endereço não for corrigido, o pacote não pode ser roteirizado de novo."},
+    {s:"Segurança", q:"Volumoso de 18 kg no chão. Dá pra carregar sozinho?", o:["Não: no chão o limite é 15 kg, precisa de 2+ pessoas ou equipamento","Sim, o limite é 25 kg","Sim, se for rapidinho","Só se usar luva"], e:"15 kg pra pacote no chão, 20 kg pra pacote acima de 75 cm. E só colaborador treinado em volumoso."},
+    {s:"Timing", q:"Em que momento pode desconteinerizar um pacote no despacho?", o:["Antes do motorista escanear o QR ou quando o app indica que ele pode começar a rota","A qualquer hora, até com o motorista na rua","Só no dia seguinte","Só depois que o motorista sair do armazém"], e:"São só esses dois momentos, e antes do motorista sair do armazém."},
+    {s:"Sistemas", q:"Precisa da NFe de um pacote. Tentou baixar no Shipping Backoffice 2 vezes e falhou. E agora?", o:["Aciona a coordenação do turno","Libera o pacote sem nota","Abre um ticket no JIRA por conta própria","Tenta mais 10 vezes"], e:"Falhou na segunda tentativa? Coordenação do turno. Nosso time não acessa o JIRA: quem escala é a coordenação."}
+  ]
+},
+{
+  id:"m8", emoji:"🔁", badge:"Guardião do Turno",
+  title:"Regras de ouro: teu turno, teu pacote",
+  sub:"O que a WI manda e o que a nossa operação combina",
+  cards:[
+    {e:"⭐", t:"As 5 regras de ouro do PS", b:`<ol>
+<li><span class="src wi">📘 WI</span> <b>O pacote é teu:</b> tratou no teu turno.</li>
+<li><span class="src wi">📘 WI</span> <b>Não consertou? Registra.</b></li>
+<li><span class="src op">🤝 OPERAÇÃO</span> <b>Sobrou pendência? Avisa o próximo turno.</b></li>
+<li><span class="src op">🤝 OPERAÇÃO</span> <b>Sinaliza tudo que deu problema.</b></li>
+<li><span class="src op">🤝 OPERAÇÃO</span> <b>Foto no grupo de como tu deixou a área.</b></li></ol>
+Nos próximos cards tem o detalhe de cada uma.`,
+     tip:"📘 WI = está escrito na WI SVC-2117-19. 🤝 OPERAÇÃO = regra combinada na nossa operação. As duas valem igual no dia a dia."},
+    {e:"📦", t:"Regra 1: o pacote é teu", b:`<span class="src wi">📘 ESTÁ NA WI (item 9.0)</span><br><br>A WI é clara: a prioridade do PS é <b>sempre, em qualquer situação</b>, <b>tratar o pacote e devolver pro fluxo de envio</b>. E isso tem que acontecer <b>no mesmo ciclo operacional</b> (só não vale pra casos que dependem de ticket).<br><br>Traduzindo: <b>a obrigação do PS é o PACOTE e as TRATATIVAS dele.</b> Chegou no teu turno, <b>tu trata no teu turno</b>.`,
+     trap:"Deixar pro próximo turno o que dava pra resolver agora NÃO é passagem de turno. É pendência criada."},
+    {e:"📝", t:"Regra 2: não consertou? Registra", b:`<span class="src wi">📘 ESTÁ NA WI (itens 9.0 e 9.6)</span><ul>
+<li>Tentou reparar a avaria e não deu? <b>Registra o caso de avaria no módulo do mesmo jeito.</b></li>
+<li>Caso que não entra no sistema (duplicada, missort, sem etiqueta, volumoso, falsa entrega)? <b>Planilha de irregularidades.</b></li>
+<li>Risco de segurança? <b>Avisa a coordenação do turno na hora.</b></li>
+<li>Equipamento com defeito que tu não resolveu? <b>Aciona a coordenação do turno.</b></li></ul>`,
+     trap:"Pacote com problema parado num canto, sem registro, é pacote perdido."},
+    {e:"📣", t:"Regra 3: sobrou pendência? Avisa", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><br><br>Às vezes não tem jeito: tá esperando aprovação do TL MELI, esperando retorno da coordenação, esperando o inventário. Nesses casos, <b>SEMPRE comunica a próxima equipe</b>:<ul>
+<li><b>Pessoalmente</b> com o PS que tá chegando, sempre que der.</li>
+<li><b>E no grupo do PS</b>, com ID, motivo e onde o pacote está.</li>
+<li>Não encontrou ninguém? Grupo <b>e</b> avisa a coordenação do turno.</li></ul>`},
+    {e:"🚩", t:"Regra 4: sinaliza o que deu problema", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><br><br>Todo pacote ou situação que deu problema e <b>não deu pra resolver</b> fica <b>sinalizado</b>:<ul>
+<li>Pacote na <b>área de tratativa</b>, num <b>baker ou gaiola identificado</b>.</li>
+<li>Identificação com <b>motivo</b>, <b>horário</b> e <b>teu nome</b>.</li>
+<li>Situação sem pacote (impressora ruim, área bloqueada, falta de fita)? <b>Conta no grupo.</b></li></ul>`,
+     trap:"A identificação vai NO BAKER. Escrever no pacote continua proibido pela WI. E pacote nunca no chão."},
+    {e:"📸", t:"Regra 5: foto de como tu deixou", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><br><br>No fim do turno, manda no grupo do PS <b>uma foto da área</b> (mesa, bakers, pendências) do jeito que tu deixou.<br><br>Assim quem chega já sabe o que vai encontrar, e fica registrado como a área foi entregue.`,
+     trap:"Foto GERAL da área, de longe. Nada de etiqueta legível: nome, endereço e telefone do cliente são dados protegidos pela LGPD."},
+    {e:"⏰", t:"Chegou no turno? Primeiro lê", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><ol>
+<li>Lê a <b>passagem de turno</b> e olha a <b>foto</b> no grupo.</li>
+<li>Confere as pendências com quem tá saindo.</li>
+<li>Vai nos <b>bakers identificados</b>.</li>
+<li>Prioriza o que tem <b>prazo</b>: avaria perto das 24h, entrega prometida pro mesmo dia.</li>
+<li>Responde <b>"Recebido 👍"</b>.</li></ol>`},
+    {e:"🫶", t:"Grupo com respeito", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><ul>
+<li><b>Elogia em público, corrige no privado</b> (ou leva pra coordenação do turno).</li>
+<li>Aponta <b>o problema, não o culpado</b>. Sem indireta.</li>
+<li>Errou? <b>Assume e avisa rápido.</b></li>
+<li>Grupo do PS é para <b>comunicação</b>. <b>USE sempre que necessário!</b></li></ul>`}
+  ],
+  quiz:[
+    {s:"Situação", q:"Chegou uma avaria na tua mesa e dá tempo de tratar antes do fim do turno. O que faz?", o:["Trata no teu turno: a obrigação do PS é o pacote e as tratativas dele","Deixa pro próximo turno, que é mais tranquilo","Manda pro inventário resolver","Espera alguém mandar tratar"], e:"Está na WI: prioridade sempre é tratar e devolver ao fluxo no mesmo ciclo operacional."},
+    {s:"Situação", q:"Tu tentou reparar a avaria e não deu. E agora?", o:["Registra o caso de avaria no módulo mesmo assim","Deixa num canto sem registrar","Descarta o pacote","Devolve pro fluxo do jeito que tá"], e:"Está na WI (9.6): se não for possível reparar, o caso de avaria tem que ser registrado igual."},
+    {s:"Fim do turno", q:"Sobraram 2 pacotes esperando resposta de ticket. O que tu faz antes de ir embora?", o:["Baker identificado + mensagem no grupo com ID, motivo e onde estão + foto da área","Deixa na mesa, alguém vai ver","Leva pro inventário sem avisar","Escreve o recado nos próprios pacotes"], e:"Regra da operação: sinaliza no baker, avisa o próximo turno no grupo e manda a foto de como deixou."},
+    {s:"LGPD", q:"Qual foto tu manda no grupo no fim do turno?", o:["Foto geral da área e dos bakers, sem etiqueta legível","Foto de cada etiqueta dos pacotes pendentes","Nenhuma, só a mensagem","Print do Logistics com o endereço do cliente"], e:"A foto mostra como a área ficou. Dado de cliente (nome, endereço, telefone) não vai pro grupo."},
+    {s:"WI ou operação?", q:"Qual dessas regras está ESCRITA na WI do Problem Solver?", o:["Tratar e devolver o pacote ao fluxo no mesmo ciclo operacional","Mandar foto da área no grupo no fim do turno","Passar o turno pessoalmente com o próximo PS","Responder \"Recebido\" na mensagem de passagem"], e:"Só a primeira está na WI (9.0). As outras são regras da nossa operação, e valem igual."}
+  ]
+}
+];
+
+const LEVELS = [
+  {xp:0,    n:"Novato da Esteira",           e:"🐣"},
+  {xp:800,  n:"Pegador de Baker",            e:"🛒"},
+  {xp:2000, n:"Caçador de Etiqueta Branca",  e:"🎯"},
+  {xp:3400, n:"Mestre da Avaria",            e:"🛠️"},
+  {xp:5000, n:"Sensei do PS",                e:"🥋"},
+  {xp:7000, n:"Lenda da Black Friday",       e:"🏆"}
+];
+const RIGHT = ["Brabo demais! 🔥","Papo reto, tu é o cara!","Bipou verdinho, chefe!","Sinistro! Na mosca 🎯","Tá voando, hein? 🚀","Nível Black Friday, respeita!","Mandou igual esteira nova!"];
+const WRONG = ["Eita, tela laranja!","Caiu na cilada 😅","Quase… o baker virou","Deu ruim, mas bora aprender","Errou, mas PS não desiste 💪"];
+const PASS_MIN = 4, BOSS_N = 10, BOSS_MIN = 7, BOSS_SEC = 25;
+
+/* =========================================================
+   ESTADO
+   ========================================================= */
+const KEY = "psbf-v1";
+function fresh(){ return {name:"",turno:"",xp:0,mods:{},boss:null,cert:null,sound:true,started:null}; }
+function load(){ try{ const r = localStorage.getItem(KEY); if(r){ const s = JSON.parse(r); return Object.assign(fresh(), s);} }catch(e){} return fresh(); }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+let S = load();
+/* =========================================================
+   CONFIG (config.js), RASTREAMENTO E EFEITOS
+   ========================================================= */
+const CFG = Object.assign({SUPABASE_URL:"",SUPABASE_ANON_KEY:"",BRINDES:[],ORBES:[]}, window.PS_CONFIG||{});
+const DEF_BRINDES = [1,2,3,4,5].map(n=>({nome:"Brinde surpresa "+n, foto:""}));
+const BRINDES = (CFG.BRINDES && CFG.BRINDES.length ? CFG.BRINDES : DEF_BRINDES);
+const ORB_EMOJIS = ["⭐","🚀","💎","🎲","🍀","🔥","⚡","🌈","🎯","🪐","🦄","🐙","🍄","🎈","👾","🌟","🧩","🛸"];
+const ORB_COLORS = [["#FFCC00","#E57F00"],["#2856CC","#13307A"],["#10905A","#075C38"],["#C9352A","#7E1B14"],["#8E44D6","#4E1F80"],["#16A3B8","#0B5C69"],["#F06292","#A12B55"]];
+
+function uid(){ try{ return crypto.randomUUID(); }catch(e){ return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==="x"?r:(r&3|8)).toString(16);}); } }
+function track(evento, detalhe, quando){
+  if(!S.sid) S.sid = uid();
+  S.fila = S.fila || [];
+  S.fila.push({sessao_id:S.sid, nome:S.name, turno:S.turno, evento, detalhe:detalhe||{}, ocorrido_em:quando||new Date().toISOString()});
+  save(); flush();
+}
+let flushing=false;
+async function flush(){
+  if(flushing || !CFG.SUPABASE_URL || !CFG.SUPABASE_ANON_KEY || !S.fila || !S.fila.length) return;
+  flushing=true;
+  const lote = S.fila.slice();
+  try{
+    const r = await fetch(CFG.SUPABASE_URL.replace(/\/$/,"")+"/rest/v1/ps_eventos",{
+      method:"POST",
+      headers:{"apikey":CFG.SUPABASE_ANON_KEY,"Authorization":"Bearer "+CFG.SUPABASE_ANON_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      body:JSON.stringify(lote)
+    });
+    if(r.ok){ S.fila = S.fila.slice(lote.length); save(); }
+  }catch(e){}
+  flushing=false;
+}
+window.addEventListener("online", flush);
+
+/* confete */
+let fxStop=null;
+function confetti(opts){
+  opts = opts||{};
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cv = document.getElementById("fx");
+  if(!cv){ cv=document.createElement("canvas"); cv.id="fx"; document.body.appendChild(cv); }
+  const ctx = cv.getContext("2d");
+  const dpr = Math.min(2, window.devicePixelRatio||1);
+  function size(){ cv.width=innerWidth*dpr; cv.height=innerHeight*dpr; cv.style.width=innerWidth+"px"; cv.style.height=innerHeight+"px"; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); window.addEventListener("resize", size);
+  const cols=["#FFCC00","#10905A","#2856CC","#C9352A","#E57F00","#FFFFFF","#8E44D6"];
+  const parts=[];
+  function burst(x,y,n,power){
+    for(let k=0;k<n;k++){
+      const a=Math.random()*Math.PI*2, v=(Math.random()*0.7+0.3)*power;
+      parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-power*0.35,w:6+Math.random()*7,h:8+Math.random()*10,r:Math.random()*6,vr:(Math.random()-.5)*0.4,c:cols[k%cols.length],life:0,max:140+Math.random()*80,round:Math.random()<.25});
+    }
+  }
+  const W=()=>innerWidth, H=()=>innerHeight;
+  const scale = reduce?0.3:1;
+  if(opts.at){ burst(opts.at[0],opts.at[1],Math.round(160*scale),14); }
+  else {
+    const plan=[[.5,.45,0],[.2,.35,350],[.8,.35,650],[.35,.6,1000],[.65,.55,1300],[.5,.3,1700],[.15,.5,2100],[.85,.5,2400]];
+    plan.forEach(([px,py,t])=>setTimeout(()=>burst(W()*px,H()*py,Math.round(110*scale),12),t));
+  }
+  let raf, alive=true;
+  function tick(){
+    ctx.clearRect(0,0,W(),H());
+    for(let k=parts.length-1;k>=0;k--){
+      const p=parts[k]; p.life++; p.vy+=0.28; p.vx*=0.985; p.vy*=0.985; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr;
+      const fade = Math.max(0,1-p.life/p.max);
+      if(fade<=0||p.y>H()+40){ parts.splice(k,1); continue; }
+      ctx.save(); ctx.globalAlpha=fade; ctx.translate(p.x,p.y); ctx.rotate(p.r); ctx.fillStyle=p.c;
+      if(p.round){ ctx.beginPath(); ctx.arc(0,0,p.w/2,0,Math.PI*2); ctx.fill(); } else ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h*Math.abs(Math.cos(p.life/8)));
+      ctx.restore();
+    }
+    if(alive) raf=requestAnimationFrame(tick);
+  }
+  tick();
+  const stop=()=>{ alive=false; cancelAnimationFrame(raf); window.removeEventListener("resize",size); ctx.clearRect(0,0,W(),H()); };
+  setTimeout(()=>{ if(!parts.length) stop(); }, 6000);
+  fxStop=stop;
+  return stop;
+}
+function fmtDT(iso){ if(!iso) return "–"; const d=new Date(iso); return d.toLocaleDateString("pt-BR")+" às "+d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); }
+
+let timers = [];
+function clearTimers(){ timers.forEach(t=>{clearInterval(t);clearTimeout(t)}); timers=[]; if(fxStop){ fxStop(); fxStop=null; } const pl=document.querySelector(".pop-layer"); if(pl) pl.remove(); document.querySelectorAll(".pop-orb").forEach(e=>e.remove()); }
+
+const app = document.getElementById("app");
+const topEl = document.getElementById("top");
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+function mod(i){ return S.mods[MODULES[i].id] || (S.mods[MODULES[i].id] = {read:false,best:0,attempts:0,passed:false,perfect:false}); }
+function unlocked(i){ return i===0 || mod(i-1).passed; }
+function allPassed(){ return MODULES.every((m,i)=>mod(i).passed); }
+function level(xp){ let L=LEVELS[0], nx=null; for(let i=0;i<LEVELS.length;i++){ if(xp>=LEVELS[i].xp){L=LEVELS[i]; nx=LEVELS[i+1]||null;} } return {L,nx}; }
+function firstName(){ return (S.name||"").trim().split(/\s+/)[0] || "PS"; }
+
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),1800); }
+
+/* som do HH */
+let actx=null;
+function beep(ok){
+  if(!ok){ try{ navigator.vibrate && navigator.vibrate(140); }catch(e){} }
+  if(!S.sound) return;
+  try{
+    actx = actx || new (window.AudioContext||window.webkitAudioContext)();
+    const t = actx.currentTime;
+    const tones = ok ? [[1400,0],[1870,0.09]] : [[190,0],[150,0.14]];
+    tones.forEach(([f,d])=>{
+      const o=actx.createOscillator(), g=actx.createGain();
+      o.type = ok ? "square" : "sawtooth"; o.frequency.value=f;
+      g.gain.setValueAtTime(0.0001,t+d);
+      g.gain.exponentialRampToValueAtTime(0.09,t+d+0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+d+(ok?0.08:0.22));
+      o.connect(g); g.connect(actx.destination); o.start(t+d); o.stop(t+d+0.3);
+    });
+  }catch(e){}
+}
+
+
+/* =========================================================
+   BRINDE: bolhas que se movem, estouro e revelação
+   ========================================================= */
+const FINAL_MSG = `<b>Obrigado por chegar até aqui!</b> Mas ainda tem muito mais pra aprender. Lembra: <b>aprendizado não aplicado é tempo jogado fora</b>. Por isso, começa a aplicar o que tu aprendeu <b>amanhã mesmo!</b> 💪`;
+function giftHTML(b){
+  return `<div class="gift-photo">${b.foto?`<img src="${esc(b.foto)}" alt="${esc(b.nome)}" onerror="this.parentNode.textContent='🎁'">`:"🎁"}</div>`;
+}
+function renderGift(){
+  const gs = document.getElementById("gs");
+  if(!gs) return;
+  if(S.brinde){
+    gs.innerHTML = `<h2>🎁 Teu brinde</h2>
+      <div class="chosen">${giftHTML(S.brinde)}<h3 id="bn"></h3>
+      <p class="muted small" style="margin:8px 0 0">Escolhido em ${fmtDT(S.brinde.em)}. Mostra esta tela pra coordenação do teu turno pra retirar.</p></div>
+      <div class="final-msg show">${FINAL_MSG}</div>`;
+    document.getElementById("bn").textContent = S.brinde.nome;
+    return;
+  }
+  gs.innerHTML = `<h2>🎁 Escolhe teu brinde surpresa</h2>
+    <p class="muted">Toca numa das bolhas. A que tu pegar vira o teu brinde. Só vale uma, hein!</p>
+    <div class="arena" id="arena"></div>`;
+  const arena = document.getElementById("arena");
+  const useImgs = CFG.ORBES && CFG.ORBES.length >= 5;
+  const pool = shuffle(useImgs ? CFG.ORBES.map(u=>({img:u})) : ORB_EMOJIS.map(e=>({e})));
+  const base = BRINDES.length ? BRINDES : DEF_BRINDES;
+  const prizes = shuffle(Array.from({length:Math.max(5,base.length)},(_,k)=>base[k%base.length])).slice(0,5);
+  const colors = shuffle(ORB_COLORS);
+  for(let k=0;k<5;k++){
+    const lane = document.createElement("div"); lane.className="lane";
+    const b = document.createElement("button"); b.className="orb";
+    const [c1,c2] = colors[k%colors.length];
+    b.style.background = `radial-gradient(circle at 32% 30%, ${c1}, ${c2})`;
+    b.style.setProperty("--d", (5.5+Math.random()*4.5).toFixed(2)+"s");
+    b.style.setProperty("--dl", (-Math.random()*9).toFixed(2)+"s");
+    b.style.left = Math.round(4+Math.random()*60)+"%";
+    b.setAttribute("aria-label","Bolha surpresa "+(k+1));
+    const it = pool[k];
+    if(it.img){ const im=document.createElement("img"); im.src=it.img; im.alt=""; b.appendChild(im); }
+    else { const sp=document.createElement("span"); sp.className="in"; sp.style.animationDelay=(-Math.random()*1.6).toFixed(2)+"s"; sp.textContent=it.e; b.appendChild(sp); }
+    b.onclick = ()=>chooseGift(b, prizes[k]);
+    lane.appendChild(b); arena.appendChild(lane);
+  }
+}
+function chooseGift(el, prize){
+  const arena = document.getElementById("arena");
+  if(!arena || arena.classList.contains("locked") || S.brinde) return;
+  const r = el.getBoundingClientRect();
+  arena.classList.add("locked");
+  S.brinde = {nome:prize.nome, foto:prize.foto||"", em:new Date().toISOString()};
+  save();
+  track("brinde",{brinde:prize.nome});
+  const layer = document.createElement("div"); layer.className="pop-layer"; document.body.appendChild(layer);
+  const orb = document.createElement("div"); orb.className="pop-orb";
+  orb.style.cssText = `left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;background:${el.style.background}`;
+  orb.innerHTML = el.innerHTML;
+  document.body.appendChild(orb);
+  const vw = innerWidth, vh = innerHeight;
+  const sc = (Math.min(vw,vh)*0.72)/r.width;
+  const dx = vw/2-(r.left+r.width/2), dy = vh/2-(r.top+r.height/2);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ orb.style.transform = `translate(${dx}px,${dy}px) scale(${sc})`; }));
+  timers.push(setTimeout(()=>orb.classList.add("shake"), 1350));
+  timers.push(setTimeout(()=>{
+    orb.classList.add("boom");
+    orb.style.transform = `translate(${dx}px,${dy}px) scale(${sc*1.4})`;
+    beep(true);
+    confetti({at:[vw/2, vh/2]});
+    layer.innerHTML = `<div class="reveal" role="dialog" aria-label="Teu brinde">
+      <div class="k">💥 TEU BRINDE É…</div>
+      ${giftHTML(S.brinde)}
+      <h2 id="rn"></h2>
+      <p class="muted small">Mostra esta tela pra coordenação do teu turno pra retirar.</p>
+      <div class="final-msg" id="fm">${FINAL_MSG}</div>
+      <button class="btn" id="okb" style="margin-top:14px;opacity:0;pointer-events:none;transition:opacity .4s">Ver meu certificado</button>
+    </div>`;
+    document.getElementById("rn").textContent = S.brinde.nome;
+    requestAnimationFrame(()=>layer.querySelector(".reveal").classList.add("in"));
+    document.getElementById("okb").onclick = ()=>go("cert");
+  }, 1850));
+  timers.push(setTimeout(()=>orb.remove(), 2150));
+  timers.push(setTimeout(()=>{ const f=document.getElementById("fm"); if(f) f.classList.add("show"); }, 3600));
+  timers.push(setTimeout(()=>{ const o=document.getElementById("okb"); if(o){ o.style.opacity=1; o.style.pointerEvents="auto"; } }, 4800));
+}
+
+/* =========================================================
+   TOPO
+   ========================================================= */
+function renderTop(show){
+  if(!show){ topEl.innerHTML = '<div class="hazard"></div>'; return; }
+  const {L} = level(S.xp);
+  topEl.innerHTML = `<div class="hazard"></div><div class="topbar"><div class="topbar-in">
+    <button class="icon-btn" id="tb-home" aria-label="Voltar pra trilha">🏠</button>
+    <div class="who">${L.e} <span id="tb-name"></span></div>
+    <span class="pill" aria-label="Pontos de experiência">⚡ ${S.xp} XP</span>
+    <button class="icon-btn" id="tb-snd" aria-label="${S.sound?"Desligar":"Ligar"} som">${S.sound?"🔊":"🔇"}</button>
+  </div></div>`;
+  document.getElementById("tb-name").textContent = firstName();
+  document.getElementById("tb-home").onclick = ()=>go("map");
+  document.getElementById("tb-snd").onclick = ()=>{ S.sound=!S.sound; save(); renderTop(true); };
+}
+
+function go(screen,arg){ clearTimers(); window.scrollTo(0,0); SCREENS[screen](arg); }
+
+/* =========================================================
+   TELAS
+   ========================================================= */
+const SCREENS = {
+
+start(){
+  if(S.name){ return go("map"); }
+  renderTop(false);
+  app.innerHTML = `
+  <section class="hero">
+    <span class="kicker">Treinamento Problem Solver SVC</span>
+    <h1>Modo<span class="bf">Black Friday</span></h1>
+    <p style="margin-top:14px">Salve, PS! 👊 A Black Friday tá chegando e a operação vai virar um formigueiro. Aqui tu aprende tudo que a WI do Problem Solver manda, <b>jogando</b>.</p>
+  </section>
+  <div class="rules">
+    <b>Como funciona o rolê:</b>
+    <ul>
+      <li>8 missões + 1 chefão final</li>
+      <li>Lê os cards de cada missão (sem pular, hein)</li>
+      <li>Responde 5 perguntas e precisa de <b>4 acertos</b> pra liberar a próxima</li>
+      <li>Acumula XP, sobe de nível e ganha insígnias</li>
+      <li>Quem derrubar o chefão final desbloqueia um <b>prêmio surpresa 🎁</b>. O que é? Só descobre quem chegar lá 🤫</li>
+    </ul>
+  </div>
+  <form id="f" novalidate>
+    <label class="field"><span>Teu nome completo</span>
+      <input id="nm" autocomplete="name" maxlength="60" placeholder="Ex: Ana Paula Souza" required></label>
+    <label class="field"><span>Turno</span>
+      <select id="tn">
+        <option value="">Escolhe aí</option>
+        <option>Madrugada</option><option>Manhã</option><option>Tarde</option><option>Noite</option>
+      </select></label>
+    <div class="err" id="er" role="alert"></div>
+    <button class="btn" type="submit">Bora começar 🚀</button>
+  </form>
+`;
+  document.getElementById("f").onsubmit = (ev)=>{
+    ev.preventDefault();
+    const n = document.getElementById("nm").value.replace(/\s+/g," ").trim();
+    const t = document.getElementById("tn").value;
+    const er = document.getElementById("er");
+    if(n.split(" ").length<2 || n.length<5){ er.textContent="Coloca nome e sobrenome, pra aparecer certinho no certificado."; return; }
+    if(!t){ er.textContent="Escolhe teu turno."; return; }
+    S = fresh(); S.name=n; S.turno=t; S.started=new Date().toISOString(); S.sid=uid(); save(); track("inicio",{},S.started);
+    go("map");
+  };
+},
+
+map(){
+  if(!S.name) return go("start");
+  renderTop(true);
+  const {L,nx} = level(S.xp);
+  const pct = nx ? Math.min(100, Math.round((S.xp-L.xp)/(nx.xp-L.xp)*100)) : 100;
+  const doneCount = MODULES.filter((m,i)=>mod(i).passed).length;
+  let html = `
+  <section class="player">
+    <div class="hi">Nível atual de <span id="pn"></span></div>
+    <div class="lvl">${L.e} ${L.n}</div>
+    <div class="xpbar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div>
+    <div class="xpmeta"><span>${S.xp} XP</span><span>${nx? "Faltam "+(nx.xp-S.xp)+" pra "+nx.e : "Nível máximo 👑"}</span></div>
+    <div class="badges">${MODULES.map((m,i)=>`<span class="badge ${mod(i).passed?"":"off"}" title="${esc(m.badge)}">${m.emoji}</span>`).join("")}<span class="badge ${S.boss&&S.boss.passed?"":"off"}" title="Chefão derrotado">👹</span></div>
+  </section>
+  <h2 style="margin-bottom:6px">Tua trilha</h2>
+  <p class="muted small" style="margin-bottom:16px">${doneCount} de ${MODULES.length} missões concluídas${doneCount===MODULES.length?" 🎉":""}</p>
+  <ol class="trail">`;
+  MODULES.forEach((m,i)=>{
+    const st = mod(i), op = unlocked(i);
+    const cls = st.passed ? "done" : (op ? "open" : "locked");
+    const status = st.passed ? `✔ Concluída: melhor nota ${st.best}/5${st.perfect?" ⭐":""}` : (op ? (st.attempts? `Tentativas: ${st.attempts}. Precisa de 4/5` : "Liberada: bora!") : "🔒 Conclui a anterior pra liberar");
+    html += `<li class="stop ${cls}">
+      <div class="node" aria-hidden="true">${st.passed?"✔":(op?m.emoji:"🔒")}</div>
+      <button class="label" data-i="${i}" ${op?"":"disabled"} aria-label="Missão ${i+1}: ${esc(m.title)}. ${esc(status)}">
+        <span class="code"><span class="barcode"></span>MISSÃO ${i+1}</span>
+        <span class="t" style="display:block">${esc(m.title)}</span>
+        <span class="s" style="display:block">${esc(status)}</span>
+      </button></li>`;
+  });
+  const bossOpen = allPassed();
+  const bs = S.boss;
+  html += `<li class="stop boss ${bs&&bs.passed?"done":(bossOpen?"open":"locked")}">
+    <div class="node" aria-hidden="true">${bs&&bs.passed?"✔":(bossOpen?"👹":"🔒")}</div>
+    <button class="label" id="boss" ${bossOpen?"":"disabled"}>
+      <span class="code"><span class="barcode"></span>FINAL</span>
+      <span class="t" style="display:block">Chefão da Black Friday</span>
+      <span class="s" style="display:block">${bs&&bs.passed?`✔ Derrotado: ${bs.best}/${BOSS_N}`:(bossOpen?`${BOSS_N} perguntas sorteadas, ${BOSS_SEC}s cada. Precisa de ${BOSS_MIN}.`:"🔒 Conclui as "+MODULES.length+" missões")}</span>
+    </button></li></ol>`;
+  if(S.cert){ html += `<button class="btn dark" id="cert" style="margin-top:8px">🏅 Meu certificado SUPER PS</button>`; }
+  html += `<div class="foot stack">
+    <button class="linkish" id="swap">Não é <span id="fn2"></span>? Trocar de pessoa</button>
+  </div>`;
+  app.innerHTML = html;
+  document.getElementById("pn").textContent = firstName();
+  document.getElementById("fn2").textContent = firstName();
+  app.querySelectorAll(".label[data-i]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; if(unlocked(i)) go("intro",i); });
+  const bb = document.getElementById("boss"); if(bb) bb.onclick = ()=>{ if(allPassed()) go("bossIntro"); };
+  const cb = document.getElementById("cert"); if(cb) cb.onclick = ()=>go("cert");
+  let armed=false;
+  document.getElementById("swap").onclick = (ev)=>{
+    if(!armed){ armed=true; ev.currentTarget.textContent="Toca de novo pra apagar o progresso deste celular"; return; }
+    try{ localStorage.removeItem(KEY); }catch(e){} S=fresh(); go("start");
+  };
+},
+
+intro(i){
+  const m = MODULES[i], st = mod(i);
+  renderTop(true);
+  app.innerHTML = `
+  <div class="modhead">
+    <div class="code"><span class="barcode"></span>MISSÃO ${i+1} DE ${MODULES.length}</div>
+    <div style="font-size:54px;line-height:1;margin:8px 0">${m.emoji}</div>
+    <h2>${esc(m.title)}</h2>
+    <p class="muted" style="margin-top:8px">${esc(m.sub)}</p>
+  </div>
+  <div class="rules"><ul style="margin:0">
+    <li>📖 ${m.cards.length} cards pra ler</li>
+    <li>❓ 5 perguntas no final (precisa de 4)</li>
+    <li>🏅 Insígnia: <b>${esc(m.badge)}</b></li>
+  </ul></div>
+  <div class="stack">
+    <button class="btn" id="rd">${st.read?"Reler o conteúdo 📖":"Começar a leitura 📖"}</button>
+    ${st.read?`<button class="btn ghost" id="qz">Ir direto pras perguntas</button>`:""}
+    <button class="btn ghost" id="bk">Voltar pra trilha</button>
+  </div>`;
+  document.getElementById("rd").onclick = ()=>go("read",{i,c:0});
+  const q=document.getElementById("qz"); if(q) q.onclick=()=>go("quiz",{i});
+  document.getElementById("bk").onclick = ()=>go("map");
+},
+
+read({i,c}){
+  const m = MODULES[i], st = mod(i), card = m.cards[c];
+  const last = c===m.cards.length-1;
+  renderTop(true);
+  app.innerHTML = `
+  <div class="modhead" style="padding-bottom:0">
+    <div class="code"><span class="barcode"></span>MISSÃO ${i+1}: CARD ${c+1} DE ${m.cards.length}</div>
+  </div>
+  <div class="segs" aria-hidden="true">${m.cards.map((_,k)=>`<i class="${k<=c?"on":""}"></i>`).join("")}</div>
+  <article class="card">
+    <div class="emoji" aria-hidden="true">${card.e}</div>
+    <h3>${esc(card.t)}</h3>
+    <div>${card.b}</div>
+    ${card.tip?`<div class="tip"><strong>💡 Dica de ouro</strong>${esc(card.tip)}</div>`:""}
+    ${card.trap?`<div class="trap"><strong>⚠️ É cilada!</strong>${esc(card.trap)}</div>`:""}
+  </article>
+  <div class="navrow">
+    ${c>0?`<button class="btn ghost" id="pv" aria-label="Card anterior">←</button>`:""}
+    <button class="btn" id="nx">${last?"Partiu perguntas 🎯":"Próximo card"}</button>
+  </div>`;
+  const nx = document.getElementById("nx");
+  const label = nx.textContent;
+  // tempo mínimo de leitura na primeira vez
+  const words = (card.b+(card.tip||"")+(card.trap||"")).replace(/<[^>]+>/g," ").split(/\s+/).length;
+  const wait = st.read ? 0 : Math.min(9, Math.max(3, Math.round(words/22)));
+  if(wait>0){
+    nx.disabled = true;
+    let left = wait;
+    nx.innerHTML = `<span class="wait-fill" id="wf"></span><span style="position:relative">Lendo… ${left}s</span>`;
+    const wf = document.getElementById("wf");
+    requestAnimationFrame(()=>{ wf.style.transition=`width ${wait}s linear`; wf.style.width="100%"; });
+    const t = setInterval(()=>{
+      left--;
+      if(left<=0){ clearInterval(t); nx.disabled=false; nx.textContent=label; }
+      else nx.querySelector("span:last-child").textContent=`Lendo… ${left}s`;
+    },1000);
+    timers.push(t);
+  }
+  nx.onclick = ()=>{
+    if(last){ st.read=true; save(); go("quiz",{i}); }
+    else go("read",{i,c:c+1});
+  };
+  const pv=document.getElementById("pv"); if(pv) pv.onclick=()=>go("read",{i,c:c-1});
+},
+
+quiz({i,boss}){
+  renderTop(true);
+  let qs;
+  if(boss){
+    const pool=[]; MODULES.forEach((m,mi)=>m.quiz.forEach(q=>pool.push(Object.assign({mi},q))));
+    qs = shuffle(pool).slice(0,BOSS_N);
+  } else {
+    qs = shuffle(MODULES[i].quiz);
+  }
+  const first = boss ? !(S.boss&&S.boss.passed) : mod(i).attempts===0;
+  const run = {idx:0,right:0,streak:0,xp:0,combo:0};
+  const total = qs.length;
+
+  function show(){
+    clearTimers();
+    const q = qs[run.idx];
+    const order = shuffle([0,1,2,3]);
+    const letters = ["A","B","C","D"];
+    app.innerHTML = `
+    <div class="qtop">
+      <span class="qcount">${boss?"👹 Chefão":"Missão "+(i+1)}: pergunta ${run.idx+1}/${total}</span>
+      <span class="streak">${run.streak>=2?"🔥 "+run.streak+" seguidas":""}</span>
+    </div>
+    ${boss?`<div class="timer" aria-hidden="true"><i id="tm"></i></div>`:""}
+    <article class="qcard">
+      <span class="sit">${esc(q.s)}</span>
+      <div class="prompt">${esc(q.q)}</div>
+      <div class="opts" role="group" aria-label="Alternativas">
+        ${order.map((oi,k)=>`<button class="opt" data-oi="${oi}"><span class="k">${letters[k]}</span><span>${esc(q.o[oi])}</span></button>`).join("")}
+      </div>
+    </article>
+    <div id="fb"></div>`;
+    const btns = [...app.querySelectorAll(".opt")];
+    btns.forEach(b=>b.onclick=()=>answer(+b.dataset.oi));
+    if(boss){
+      const tm=document.getElementById("tm"); const t0=Date.now();
+      const t=setInterval(()=>{
+        const left = BOSS_SEC - (Date.now()-t0)/1000;
+        tm.style.width = Math.max(0,left/BOSS_SEC*100)+"%";
+        if(left<=6) tm.classList.add("hot");
+        if(left<=0){ clearInterval(t); answer(-1); }
+      },100);
+      timers.push(t);
+      run.t0=t0;
+    }
+    function answer(oi){
+      clearTimers();
+      const ok = oi===0;
+      btns.forEach(b=>{ b.disabled=true; const v=+b.dataset.oi; if(v===0) b.classList.add("right"); else if(v===oi) b.classList.add("wrong"); });
+      let gain=0, extra="";
+      if(ok){
+        run.right++; run.streak++;
+        if(boss){ const secLeft=Math.max(0,Math.round(BOSS_SEC-(Date.now()-run.t0)/1000)); gain = (first?150:60) + (first?secLeft*4:0); if(first&&secLeft) extra=` (+${secLeft*4} de rapidez)`; }
+        else gain = first?100:40;
+        if(run.streak>0 && run.streak%3===0){ gain+=50; run.combo++; extra+=" 🔥 COMBO!"; }
+      } else run.streak=0;
+      run.xp += gain;
+      beep(ok);
+      const fb = document.getElementById("fb");
+      fb.innerHTML = `<div class="hh ${ok?"ok":"bad"}" role="status">
+        <div class="hh-screen"><div class="scan"></div>
+          <div class="hh-title">${ok?"TELA VERDE ✔":(oi===-1?"TEMPO ESGOTOU ⏱":"TELA LARANJA ✖")}</div>
+          <div class="hh-sub">${ok?pick(RIGHT):pick(WRONG)}</div>
+          <div class="hh-exp"><b>Papo reto:</b> ${esc(q.e)}</div>
+          ${gain?`<span class="hh-xp">+${gain} XP${esc(extra)}</span>`:""}
+        </div>
+        <button class="btn" id="go">${run.idx+1<total?"Próxima pergunta":"Ver resultado"}</button>
+      </div>`;
+      const g=document.getElementById("go");
+      g.onclick = next;
+      setTimeout(()=>{ fb.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth", block:"end"}); try{g.focus({preventScroll:true})}catch(e){} },60);
+    }
+  }
+  function next(){
+    run.idx++;
+    if(run.idx<total){ window.scrollTo(0,0); show(); }
+    else finish();
+  }
+  function finish(){
+    let bonus=[];
+    if(boss){
+      const passed = run.right>=BOSS_MIN;
+      const prev = S.boss||{best:0,passed:false,attempts:0};
+      if(passed && !prev.passed){ bonus.push(["Chefão derrotado",300]); }
+      const b = {best:Math.max(prev.best,run.right),passed:prev.passed||passed,attempts:prev.attempts+1};
+      S.boss=b;
+      const add = run.xp + bonus.reduce((a,x)=>a+x[1],0);
+      S.xp += add;
+      let primeiraVez=false;
+      if(passed && !S.cert){
+        S.cert = {xp:S.xp, date:new Date().toISOString(), boss:run.right};
+        primeiraVez=true;
+      }
+      save();
+      track("chefao",{nota:run.right,passou:passed});
+      if(primeiraVez){ track("fim",{xp:S.xp},S.cert.date); return go("celebrate"); }
+      go("result",{boss:true,right:run.right,total,passed,xp:run.xp,bonus});
+    } else {
+      const st = mod(i);
+      const passed = run.right>=PASS_MIN;
+      if(passed && !st.passed) bonus.push(["Missão concluída",150]);
+      if(run.right===total && !st.perfect){ bonus.push(["Gabaritou ⭐",100]); st.perfect=true; }
+      const jaPassou = st.passed;
+      st.attempts++; st.best=Math.max(st.best,run.right); st.passed = st.passed||passed;
+      if(passed && !jaPassou) track("missao",{missao:i+1,nota:run.right,tentativas:st.attempts});
+      S.xp += run.xp + bonus.reduce((a,x)=>a+x[1],0);
+      save();
+      go("result",{i,right:run.right,total,passed,xp:run.xp,bonus});
+    }
+  }
+  show();
+},
+
+result(r){
+  renderTop(true);
+  const perfect = r.right===r.total;
+  let big, title, msg;
+  if(r.boss){
+    big = r.passed ? "🏆" : "👹";
+    title = r.passed ? "CHEFÃO DERRUBADO!" : "O chefão venceu essa…";
+    msg = r.passed ? `Tu tá pronto pra Black Friday, ${esc(firstName())}! E agora, o prêmio surpresa… 🎁` : `Precisa de ${BOSS_MIN} acertos. As perguntas mudam a cada tentativa. Revisa as missões e volta pra revanche!`;
+  } else {
+    big = perfect ? "🏆" : (r.passed ? "👊" : "😵‍💫");
+    title = perfect ? "GABARITOU!" : (r.passed ? "Missão cumprida!" : "Não foi dessa vez");
+    msg = perfect ? "5 de 5, tu é monstro. Insígnia garantida!" : (r.passed ? "Tá na régua! Próxima missão liberada." : `Precisa de ${PASS_MIN} acertos pra liberar a próxima. Dá uma relida no conteúdo e volta com tudo, as perguntas vêm embaralhadas.`);
+  }
+  const lines = [[`Acertos (${r.right}/${r.total})`, r.xp], ...r.bonus];
+  const lastMission = !r.boss && r.passed && r.i===MODULES.length-1;
+  app.innerHTML = `
+  <section class="result">
+    <div class="big" aria-hidden="true">${big}</div>
+    <h2>${title}</h2>
+    <div class="scoreline">${r.right}/${r.total}</div>
+    <p>${msg}</p>
+  </section>
+  <div class="gains">${lines.map(([k,v])=>`<div><span>${esc(k)}</span><b>+${v} XP</b></div>`).join("")}</div>
+  ${!r.boss && r.passed ? `<p class="muted small" style="text-align:center">Insígnia desbloqueada: ${MODULES[r.i].emoji} <b>${esc(MODULES[r.i].badge)}</b></p>`:""}
+  <div class="stack" style="margin-top:14px">
+    ${r.boss ? (r.passed
+        ? `<button class="btn" id="a1">Abrir meu prêmio surpresa 🎁</button>`
+        : `<button class="btn" id="a1">Revanche! 👹</button>`)
+      : (r.passed
+        ? (lastMission ? `<button class="btn" id="a1">Encarar o Chefão 👹</button>` : `<button class="btn" id="a1">Próxima missão ➜</button>`)
+        : `<button class="btn" id="a1">Reler o conteúdo 📖</button><button class="btn ghost" id="a3">Tentar as perguntas de novo</button>`)}
+    <button class="btn ghost" id="a2">Voltar pra trilha</button>
+  </div>`;
+  const a1=document.getElementById("a1");
+  a1.onclick = ()=>{
+    if(r.boss) return r.passed ? go("cert") : go("bossIntro");
+    if(!r.passed) return go("read",{i:r.i,c:0});
+    if(lastMission) return go("bossIntro");
+    go("intro", r.i+1);
+  };
+  const a3=document.getElementById("a3"); if(a3) a3.onclick=()=>go("quiz",{i:r.i});
+  document.getElementById("a2").onclick = ()=>go("map");
+  if(r.passed) toast(r.boss?"👹 Chefão derrotado!":"🏅 +1 insígnia!");
+},
+
+bossIntro(){
+  if(!allPassed()) return go("map");
+  renderTop(true);
+  app.innerHTML = `
+  <div class="hazard" style="margin:18px -16px 0;height:18px"></div>
+  <div class="modhead">
+    <div style="font-size:64px;line-height:1;margin:8px 0">👹</div>
+    <h2>Chefão da Black Friday</h2>
+    <p class="muted" style="margin-top:8px">É dia de pico, a esteira tá voando e os B.O. não param. Mostra que tu segura!</p>
+  </div>
+  <div class="rules"><ul style="margin:0">
+    <li>🎲 ${BOSS_N} perguntas sorteadas de todas as missões</li>
+    <li>⏱ ${BOSS_SEC} segundos pra cada uma</li>
+    <li>✅ Precisa de <b>${BOSS_MIN} acertos</b></li>
+    <li>⚡ Responder rápido dá XP extra</li>
+  </ul></div>
+  <div class="stack">
+    <button class="btn" id="go">Tô pronto, manda! 💪</button>
+    <button class="btn ghost" id="bk">Ainda não, voltar</button>
+  </div>`;
+  document.getElementById("go").onclick=()=>go("quiz",{boss:true});
+  document.getElementById("bk").onclick=()=>go("map");
+},
+
+celebrate(){
+  if(!S.cert) return go("map");
+  renderTop(false);
+  app.innerHTML = `<section class="celebra">
+    <div class="trophy" aria-hidden="true">🏆</div>
+    <h1>Curso concluído com sucesso!</h1>
+    <p>Parabéns, <b id="cf"></b>! Tu mandou muito bem e chegou até o final. 🎉</p>
+    <button class="btn" id="vis">Visualizar</button>
+  </section>`;
+  document.getElementById("cf").textContent = firstName();
+  beep(true);
+  confetti();
+  const b = document.getElementById("vis");
+  timers.push(setTimeout(()=>b.classList.add("show"), 3000));
+  b.onclick = ()=>go("cert");
+},
+
+cert(){
+  if(!S.cert) return go("map");
+  renderTop(true);
+  const c = S.cert;
+  const {L} = level(c.xp);
+  const done = MODULES.filter((m,i)=>mod(i).passed).length;
+  app.innerHTML = `
+  <article class="super">
+    <div class="hazard"></div>
+    <div class="band">
+      <div class="seal" aria-hidden="true"><b>SUPER</b><span>PS</span></div>
+      <div class="ttl">Certificado SUPER PS</div>
+      <div style="color:#fff;opacity:.8;font-size:14px;margin-top:4px">Curso teórico Problem Solver SVC, Modo Black Friday</div>
+    </div>
+    <div class="body">
+      <div class="muted small">Este certificado é de</div>
+      <div class="name" id="cn"></div>
+      <div class="msg">
+        <p><b>Parabéns!</b> Tu começou <b>e terminou</b> o curso teórico do Problem Solver. Muita gente começa, pouca gente vai até o fim. E tu foi.</p>
+        <p style="margin:0">Isso mostra interesse, compromisso e vontade de fazer a diferença na operação. A partir de hoje tu é oficialmente um <b>SUPER PS</b>. 🦸</p>
+      </div>
+      <table>
+        <tr><td>Turno</td><td id="ct"></td></tr>
+        <tr><td>Início do curso</td><td>${fmtDT(S.started)}</td></tr>
+        <tr><td>Conclusão</td><td>${fmtDT(c.date)}</td></tr>
+        <tr><td>Missões</td><td>${done}/${MODULES.length}</td></tr>
+        <tr><td>Chefão final</td><td>${c.boss}/${BOSS_N}</td></tr>
+        <tr><td>Nível</td><td>${L.e} ${esc(L.n)}</td></tr>
+      </table>
+    </div>
+  </article>
+  <section class="gift-sec" id="gs"></section>
+  <div class="stack" style="margin-top:18px"><button class="btn ghost" id="bk">Voltar pra trilha</button></div>`;
+  document.getElementById("cn").textContent = S.name;
+  document.getElementById("ct").textContent = S.turno;
+  document.getElementById("bk").onclick = ()=>go("map");
+  renderGift();
+}
+};
+
+if(S.name && !S.sid){ S.sid=uid(); track("inicio",{retroativo:true}, S.started||undefined); if(S.cert) track("fim",{xp:S.cert.xp,retroativo:true}, S.cert.date); }
+flush();
+go("start");
+</script>
+</body>
+</html>
