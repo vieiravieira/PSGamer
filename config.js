@@ -16,10 +16,10 @@ window.PS_CONFIG = {
         Se tiverem menos de 5 brindes diferentes, pode repetir o mesmo.       */
   BRINDES: [
     { nome: "Brinde 1", foto: "brindes/brinde1.jpg" },
-    { nome: "Brinde 2", foto: "brindes/brinde2.jpg" },
-    { nome: "Brinde 3", foto: "brindes/brinde3.jpg" },
-    { nome: "Brinde 4", foto: "brindes/brinde4.jpg" },
-    { nome: "Brinde 5", foto: "brindes/brinde5.jpg" }
+    { nome: "Brinde 1", foto: "brindes/brinde1.jpg" },
+    { nome: "Brinde 1", foto: "brindes/brinde1.jpg" },
+    { nome: "Brinde 1", foto: "brindes/brinde1.jpg" },
+    { nome: "Brinde 1", foto: "brindes/brinde1.jpg" }
   ],
 
   /* 3) NOME DE ADMINISTRADOR: digitando este nome na tela inicial, todas as
