@@ -194,7 +194,7 @@ p{margin:0 0 12px}
 .celebra .btn{max-width:320px;margin-top:22px;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .5s, transform .5s}
 .celebra .btn.show{opacity:1;transform:none;pointer-events:auto}
 .super{background:var(--surface);border:3px solid var(--ink);border-radius:20px;overflow:hidden;margin-top:18px;text-align:center}
-.super .band{background:var(--ink);color:var(--yellow);padding:18px 16px 16px}
+.super .band{background:var(--edge);color:var(--yellow);padding:18px 16px 16px}
 .super .seal{width:112px;height:112px;margin:0 auto 10px;border-radius:50%;background:var(--yellow);color:#1C1D1F;border:4px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-stretch:75%;line-height:.9;box-shadow:0 0 0 4px var(--yellow)}
 .super .seal b{font-size:26px}
 .super .seal span{font-size:15px;letter-spacing:1px}
@@ -207,7 +207,7 @@ p{margin:0 0 12px}
 .super td:last-child{text-align:right;font-weight:700;padding-left:10px}
 .gift-sec{margin-top:24px;text-align:center}
 .gift-sec h2{margin-bottom:6px}
-.arena{margin-top:14px;background:var(--ink);border-radius:18px;padding:10px 8px;border:3px solid var(--edge);position:relative;overflow:hidden}
+.arena{margin-top:14px;background:var(--edge);border-radius:18px;padding:10px 8px;border:3px solid var(--edge);position:relative;overflow:hidden}
 .arena::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(255,204,0,.18),transparent 45%),radial-gradient(circle at 80% 90%,rgba(40,86,204,.25),transparent 50%);pointer-events:none}
 .lane{position:relative;height:92px;border-bottom:2px dashed rgba(255,255,255,.12)}
 .lane:last-child{border-bottom:0}
@@ -283,11 +283,11 @@ E o pacote tratado volta pro fluxo <b>no mesmo ciclo operacional</b> (menos quan
     {e:"📞", t:"Travou? O caminho da dúvida", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><br><br>Aqui somos <b>DHL operando pro Mercado Livre</b>. Deu dúvida, B.O. ou risco? O caminho é sempre esse, pra PS e pra <b>qualquer colaborador</b>:<ol>
 <li><b>Primeiro pergunta pro coordenador do teu turno.</b></li>
 <li>Ele não soube responder? <b>Aí sim pergunta pro TL.</b></li></ol>
-E nosso time <b>não acessa o JIRA</b>: precisou de chamado, fala com o coordenador.`,
+Precisou abrir <b>chamado no JIRA</b> (equipamento, documento fiscal)? Quem abre é o <b>PS</b>.`,
      tip:"A aprovação de avaria no sistema é do TL MELI (regra da WI). Dúvida sobre ela? Mesmo caminho: coordenador primeiro, TL depois."}
   ],
   quiz:[
-    {s:"Quem eu procuro?", q:"Deu um B.O. que tu não consegue resolver sozinho (sistema, equipamento, dúvida de tratativa). Quem tu procura primeiro?", o:["O coordenador do teu turno (se ele não souber, aí o TL)","O TL do Mercado Livre direto","Abre um ticket no JIRA por conta própria","Deixa pra resolver no outro turno"], e:"Aqui somos DHL operando pro Mercado Livre. Primeiro é sempre o coordenador do turno. Se ele não souber responder, aí sim o TL. E JIRA nosso time não acessa."},
+    {s:"Quem eu procuro?", q:"Deu um B.O. que tu não consegue resolver sozinho (sistema, equipamento, dúvida de tratativa). Quem tu procura primeiro?", o:["O coordenador do teu turno (se ele não souber, aí o TL)","O TL do Mercado Livre direto","Pergunta pro motorista","Deixa pra resolver no outro turno"], e:"Aqui somos DHL operando pro Mercado Livre. Primeiro é sempre o coordenador do turno. Se ele não souber responder, aí sim o TL."},
     {s:"Situação", q:"Precisa abrir um pacote, mas a área de tratativa da tua operação não tem CCTV. Como faz?", o:["Abre acompanhado por um representante MELI","Abre rapidinho num canto qualquer","Abre em cima da esteira pra ganhar tempo","Não abre nunca e manda direto pra devolução"], e:"Se a área não atende os requisitos (sinalizada, CCTV, fora do fluxo, mesa dedicada), a abertura tem que ser acompanhada por um representante MELI."},
     {s:"Pegadinha", q:"Qual desses o PS NÃO pode abrir pra conferir?", o:["Celular na caixa lacrada do fabricante","Tênis numa caixa de papelão do vendedor","Camiseta num envelope plástico do vendedor","Livro embalado em plástico bolha pelo vendedor"], e:"Embalagem primária do fabricante, selo de segurança e CPG (TV, celular, ração) não podem ser violados."},
     {s:"Situação", q:"Tu quer escrever \"FRÁGIL\" de caneta na caixa pra ajudar a galera do carregamento. Pode?", o:["Não. É expressamente proibido escrever na embalagem ou produto","Pode, se for caneta permanente","Pode, se a coordenação autorizar","Pode, desde que a caixa já esteja avariada"], e:"A WI proíbe escrever na embalagem/produto em qualquer situação ou condição da embalagem."},
@@ -504,9 +504,9 @@ E nosso time <b>não acessa o JIRA</b>: precisou de chamado, fala com o coordena
 Carregando sozinho, o <b>peso máximo</b> é: <b>15 kg</b> pra pacote no chão e <b>20 kg</b> pra pacote acima de 75 cm do chão. Passou disso: <b>2+ pessoas ou equipamento</b>.`,
      trap:"Só colaborador treinado em volumosos pode manusear volumoso!"},
     {e:"🧰", t:"O resto do kit", b:`<ul>
-<li><b>Impressora/HH deu pau (9.12):</b> PS apoia o REP. Não resolveu? <b>Aciona a coordenação do turno</b> (nosso time não abre JIRA).</li>
+<li><b>Impressora/HH deu pau (9.12):</b> PS apoia o REP. Não resolveu? O PS <b>abre ticket no JIRA</b>.</li>
 <li><b>Contingência (9.13):</b> sem energia, sem internet ou sistema fora: <b>WI de Contingência SVC</b>.</li>
-<li><b>CTe, MDFe, NFe (9.15):</b> Shipping Backoffice > Gestão Fiscal > Documentos (acesso pelo Shield). Por Route ID baixa um ZIP. Falhou 2x? <b>Aciona a coordenação do turno</b>.</li>
+<li><b>CTe, MDFe, NFe (9.15):</b> Shipping Backoffice > Gestão Fiscal > Documentos (acesso pelo Shield). Por Route ID baixa um ZIP. Falhou 2x? O PS <b>abre ticket pro G.O no JIRA</b>.</li>
 <li><b>Embalagem com oportunidade (9.18, MLB):</b> frágil sem proteção, embalagem insegura, mas <b>produto sem dano</b>: AppSheet "Embalagem inadequada".</li></ul>`}
   ],
   quiz:[
@@ -514,7 +514,7 @@ Carregando sozinho, o <b>peso máximo</b> é: <b>15 kg</b> pra pacote no chão e
     {s:"Motivo", q:"Desconteinerizou com motivo \"Mal geolocalizado\". Qual o próximo passo?", o:["Corrigir o endereço antes de roteirizar de novo e levar pra zona de PS","Colocar direto na área do próximo ciclo","Mandar pra devolução","Registrar avaria"], e:"Enquanto o endereço não for corrigido, o pacote não pode ser roteirizado de novo."},
     {s:"Segurança", q:"Volumoso de 18 kg no chão. Dá pra carregar sozinho?", o:["Não: no chão o limite é 15 kg, precisa de 2+ pessoas ou equipamento","Sim, o limite é 25 kg","Sim, se for rapidinho","Só se usar luva"], e:"15 kg pra pacote no chão, 20 kg pra pacote acima de 75 cm. E só colaborador treinado em volumoso."},
     {s:"Timing", q:"Em que momento pode desconteinerizar um pacote no despacho?", o:["Antes do motorista escanear o QR ou quando o app indica que ele pode começar a rota","A qualquer hora, até com o motorista na rua","Só no dia seguinte","Só depois que o motorista sair do armazém"], e:"São só esses dois momentos, e antes do motorista sair do armazém."},
-    {s:"Sistemas", q:"Precisa da NFe de um pacote. Tentou baixar no Shipping Backoffice 2 vezes e falhou. E agora?", o:["Aciona a coordenação do turno","Libera o pacote sem nota","Abre um ticket no JIRA por conta própria","Tenta mais 10 vezes"], e:"Falhou na segunda tentativa? Coordenação do turno. Nosso time não acessa o JIRA: quem escala é a coordenação."}
+    {s:"Sistemas", q:"Precisa da NFe de um pacote. Tentou baixar no Shipping Backoffice 2 vezes e falhou. E agora?", o:["Abre ticket pro G.O no JIRA pedindo os documentos","Libera o pacote sem nota","Pede pro motorista resolver","Tenta mais 10 vezes"], e:"Falhou depois da segunda tentativa? O PS abre ticket pro G.O no JIRA pedindo os documentos (WI 9.15)."}
   ]
 },
 {
@@ -536,7 +536,7 @@ Nos próximos cards tem o detalhe de cada uma.`,
 <li>Tentou reparar a avaria e não deu? <b>Registra o caso de avaria no módulo do mesmo jeito.</b></li>
 <li>Caso que não entra no sistema (duplicada, missort, sem etiqueta, volumoso, falsa entrega)? <b>Planilha de irregularidades.</b></li>
 <li>Risco de segurança? <b>Avisa a coordenação do turno na hora.</b></li>
-<li>Equipamento com defeito que tu não resolveu? <b>Aciona a coordenação do turno.</b></li></ul>`,
+<li>Equipamento com defeito que tu não resolveu? <b>Abre ticket no JIRA.</b></li></ul>`,
      trap:"Pacote com problema parado num canto, sem registro, é pacote perdido."},
     {e:"📣", t:"Regra 3: sobrou pendência? Avisa", b:`<span class="src op">🤝 REGRA DA NOSSA OPERAÇÃO</span><br><br>Às vezes não tem jeito: tá esperando aprovação do TL MELI, esperando retorno da coordenação, esperando o inventário. Nesses casos, <b>SEMPRE comunica a próxima equipe</b>:<ul>
 <li><b>Pessoalmente</b> com o PS que tá chegando, sempre que der.</li>
@@ -594,7 +594,7 @@ let S = load();
 /* =========================================================
    CONFIG (config.js), RASTREAMENTO E EFEITOS
    ========================================================= */
-const CFG = Object.assign({PLANILHA_URL:"",BRINDES:[],ORBES:[],ADMIN_NOME:"ext_adm"}, window.PS_CONFIG||{});
+const CFG = Object.assign({PLANILHA_URL:"",BRINDES:[],ORBES:[],ADMIN_NOME:"ext_adm",TURNOS:["AM","PM","SD","DIARISTA"]}, window.PS_CONFIG||{});
 const DEF_BRINDES = [1,2,3,4,5].map(n=>({nome:"Brinde surpresa "+n, foto:""}));
 const BRINDES = (CFG.BRINDES && CFG.BRINDES.length ? CFG.BRINDES : DEF_BRINDES);
 const ORB_EMOJIS = ["⭐","🚀","💎","🎲","🍀","🔥","⚡","🌈","🎯","🪐","🦄","🐙","🍄","🎈","👾","🌟","🧩","🛸"];
@@ -849,7 +849,7 @@ start(){
     <label class="field"><span>Turno</span>
       <select id="tn">
         <option value="">Escolhe aí</option>
-        <option>AM</option><option>PM</option><option>SD</option><option>DIARISTA</option>
+        ${(Array.isArray(CFG.TURNOS)&&CFG.TURNOS.length?CFG.TURNOS:["AM","PM","SD","DIARISTA"]).map(t=>`<option>${esc(t)}</option>`).join("")}
       </select></label>
     <div class="err" id="er" role="alert"></div>
     <button class="btn" type="submit">Bora começar 🚀</button>
