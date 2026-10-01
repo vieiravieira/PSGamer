@@ -184,7 +184,7 @@ p{margin:0 0 12px}
 .foot{margin-top:28px;text-align:center}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:850;padding:10px 18px;border-radius:999px;z-index:20;font-size:18px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
 
-/* ===== comemoração, certificado SUPER PS e brindes ===== */
+/* ===== comemoração e Selo PS ===== */
 #fx{position:fixed;inset:0;pointer-events:none;z-index:40}
 .celebra{min-height:calc(100vh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 0}
 .celebra .trophy{font-size:96px;line-height:1;animation:pulse 1.2s ease-in-out infinite}
@@ -205,36 +205,9 @@ p{margin:0 0 12px}
 .super table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0 4px;text-align:left}
 .super td{padding:7px 0;border-bottom:1px dashed var(--line)}
 .super td:last-child{text-align:right;font-weight:700;padding-left:10px}
-.gift-sec{margin-top:24px;text-align:center}
-.gift-sec h2{margin-bottom:6px}
-.arena{margin-top:14px;background:var(--edge);border-radius:18px;padding:10px 8px;border:3px solid var(--edge);position:relative;overflow:hidden}
-.arena::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,rgba(255,204,0,.18),transparent 45%),radial-gradient(circle at 80% 90%,rgba(40,86,204,.25),transparent 50%);pointer-events:none}
-.lane{position:relative;height:92px;border-bottom:2px dashed rgba(255,255,255,.12)}
-.lane:last-child{border-bottom:0}
-.orb{position:absolute;top:8px;width:76px;height:76px;border-radius:50%;border:3px solid #fff;padding:0;overflow:hidden;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.45),inset 0 -8px 14px rgba(0,0,0,.25);animation:drift var(--d) ease-in-out var(--dl) infinite alternate}
-.orb .in{font-size:38px;line-height:1;animation:bob 1.6s ease-in-out infinite;display:block}
-.orb img{width:100%;height:100%;object-fit:cover;display:block}
-.orb::after{content:"";position:absolute;top:8px;left:14px;width:22px;height:12px;border-radius:50%;background:rgba(255,255,255,.55);transform:rotate(-25deg)}
-@keyframes drift{from{left:4px}to{left:calc(100% - 84px)}}
-@keyframes bob{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
-.arena.locked .orb{animation-play-state:paused;opacity:.35}
-.pop-layer{position:fixed;inset:0;z-index:30;background:rgba(10,11,13,.82);display:flex;align-items:center;justify-content:center;padding:20px}
-.pop-orb{position:fixed;border-radius:50%;border:4px solid #fff;overflow:hidden;display:grid;place-items:center;z-index:31;transition:transform 1.3s cubic-bezier(.3,1.4,.5,1)}
-.pop-orb .in{font-size:38px}
-.pop-orb img{width:100%;height:100%;object-fit:cover}
-.pop-orb.shake{animation:shake .45s linear 1}
-@keyframes shake{0%,100%{margin-left:0}20%{margin-left:-8px}40%{margin-left:8px}60%{margin-left:-6px}80%{margin-left:6px}}
-.pop-orb.boom{transition:transform .18s ease-in, opacity .18s ease-in;opacity:0}
-.reveal{position:relative;z-index:32;background:var(--surface);color:var(--ink);border:3px solid var(--edge);border-radius:22px;max-width:420px;width:100%;padding:22px 18px;text-align:center;transform:scale(.3);opacity:0;transition:transform .5s cubic-bezier(.3,1.5,.5,1),opacity .3s;max-height:calc(100vh - 40px);overflow:auto}
-.reveal.in{transform:none;opacity:1}
-.reveal .k{font-family:var(--display);font-weight:800;color:var(--muted);font-size:16px}
-.gift-photo{width:190px;height:190px;margin:12px auto;border-radius:50%;overflow:hidden;border:5px solid var(--yellow);box-shadow:0 0 0 4px var(--edge);background:var(--surface-2);display:grid;place-items:center;font-size:92px}
-.gift-photo img{width:100%;height:100%;object-fit:cover}
-.reveal h2{font-size:32px;margin:4px 0 6px}
-.final-msg{margin-top:14px;text-align:left;background:var(--ink);color:var(--bg);border-radius:14px;padding:14px 16px;font-size:17px;opacity:0;transform:translateY(10px);transition:opacity .6s, transform .6s}
+.final-msg{margin-top:18px;text-align:left;background:var(--ink);color:var(--bg);border-radius:14px;padding:14px 16px;font-size:17px;opacity:0;transform:translateY(10px);transition:opacity .6s, transform .6s}
 .final-msg.show{opacity:1;transform:none}
 .final-msg b{color:var(--yellow)}
-.chosen{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:18px;margin-top:14px}
 .pill.adm{background:var(--ink);color:var(--yellow);border-color:var(--ink)}
 .admbox{margin-top:18px;border:2px dashed var(--ink);border-radius:16px;padding:14px 16px;background:color-mix(in srgb,var(--yellow) 18%,var(--surface))}
 
@@ -594,11 +567,7 @@ let S = load();
 /* =========================================================
    CONFIG (config.js), RASTREAMENTO E EFEITOS
    ========================================================= */
-const CFG = Object.assign({PLANILHA_URL:"",BRINDES:[],ORBES:[],ADMIN_NOME:"ext_adm",TURNOS:["AM","PM","SD","DIARISTA"]}, window.PS_CONFIG||{});
-const DEF_BRINDES = [1,2,3,4,5].map(n=>({nome:"Brinde surpresa "+n, foto:""}));
-const BRINDES = (CFG.BRINDES && CFG.BRINDES.length ? CFG.BRINDES : DEF_BRINDES);
-const ORB_EMOJIS = ["⭐","🚀","💎","🎲","🍀","🔥","⚡","🌈","🎯","🪐","🦄","🐙","🍄","🎈","👾","🌟","🧩","🛸"];
-const ORB_COLORS = [["#FFCC00","#E57F00"],["#2856CC","#13307A"],["#10905A","#075C38"],["#C9352A","#7E1B14"],["#8E44D6","#4E1F80"],["#16A3B8","#0B5C69"],["#F06292","#A12B55"]];
+const CFG = Object.assign({PLANILHA_URL:"",ADMIN_NOME:"ext_adm",TURNOS:["AM","PM","SD","DIARISTA"]}, window.PS_CONFIG||{});
 
 function uid(){ try{ return crypto.randomUUID(); }catch(e){ return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==="x"?r:(r&3|8)).toString(16);}); } }
 function track(evento, detalhe, quando){
@@ -680,7 +649,7 @@ function confetti(opts){
 function fmtDT(iso){ if(!iso) return "–"; const d=new Date(iso); return d.toLocaleDateString("pt-BR")+" às "+d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); }
 
 let timers = [];
-function clearTimers(){ timers.forEach(t=>{clearInterval(t);clearTimeout(t)}); timers=[]; if(fxStop){ fxStop(); fxStop=null; } const pl=document.querySelector(".pop-layer"); if(pl) pl.remove(); document.querySelectorAll(".pop-orb").forEach(e=>e.remove()); }
+function clearTimers(){ timers.forEach(t=>{clearInterval(t);clearTimeout(t)}); timers=[]; if(fxStop){ fxStop(); fxStop=null; } }
 
 const app = document.getElementById("app");
 const topEl = document.getElementById("top");
@@ -716,88 +685,8 @@ function beep(ok){
 }
 
 
-/* =========================================================
-   BRINDE: bolhas que se movem, estouro e revelação
-   ========================================================= */
+/* mensagem final do Selo PS */
 const FINAL_MSG = `<b>Obrigado por chegar até aqui!</b> Mas ainda tem muito mais pra aprender. Lembra: <b>aprendizado não aplicado é tempo jogado fora</b>. Por isso, começa a aplicar o que tu aprendeu <b>amanhã mesmo!</b> 💪`;
-function giftHTML(b){
-  return `<div class="gift-photo">${b.foto?`<img src="${esc(b.foto)}" alt="${esc(b.nome)}" onerror="this.parentNode.textContent='🎁'">`:"🎁"}</div>`;
-}
-function renderGift(){
-  const gs = document.getElementById("gs");
-  if(!gs) return;
-  if(S.brinde){
-    gs.innerHTML = `<h2>🎁 Teu brinde</h2>
-      <div class="chosen">${giftHTML(S.brinde)}<h3 id="bn"></h3>
-      <p class="muted small" style="margin:8px 0 0">Escolhido em ${fmtDT(S.brinde.em)}. Mostra esta tela pra coordenação do teu turno pra retirar.</p></div>
-      <div class="final-msg show">${FINAL_MSG}</div>`;
-    document.getElementById("bn").textContent = S.brinde.nome;
-    return;
-  }
-  gs.innerHTML = `<h2>🎁 Escolhe teu brinde surpresa</h2>
-    <p class="muted">Toca numa das bolhas. A que tu pegar vira o teu brinde. Só vale uma, hein!</p>
-    <div class="arena" id="arena"></div>`;
-  const arena = document.getElementById("arena");
-  const useImgs = CFG.ORBES && CFG.ORBES.length >= 5;
-  const pool = shuffle(useImgs ? CFG.ORBES.map(u=>({img:u})) : ORB_EMOJIS.map(e=>({e})));
-  const base = BRINDES.length ? BRINDES : DEF_BRINDES;
-  const prizes = shuffle(Array.from({length:Math.max(5,base.length)},(_,k)=>base[k%base.length])).slice(0,5);
-  const colors = shuffle(ORB_COLORS);
-  for(let k=0;k<5;k++){
-    const lane = document.createElement("div"); lane.className="lane";
-    const b = document.createElement("button"); b.className="orb";
-    const [c1,c2] = colors[k%colors.length];
-    b.style.background = `radial-gradient(circle at 32% 30%, ${c1}, ${c2})`;
-    b.style.setProperty("--d", (5.5+Math.random()*4.5).toFixed(2)+"s");
-    b.style.setProperty("--dl", (-Math.random()*9).toFixed(2)+"s");
-    b.style.left = Math.round(4+Math.random()*60)+"%";
-    b.setAttribute("aria-label","Bolha surpresa "+(k+1));
-    const it = pool[k];
-    if(it.img){ const im=document.createElement("img"); im.src=it.img; im.alt=""; b.appendChild(im); }
-    else { const sp=document.createElement("span"); sp.className="in"; sp.style.animationDelay=(-Math.random()*1.6).toFixed(2)+"s"; sp.textContent=it.e; b.appendChild(sp); }
-    b.onclick = ()=>chooseGift(b, prizes[k]);
-    lane.appendChild(b); arena.appendChild(lane);
-  }
-}
-function chooseGift(el, prize){
-  const arena = document.getElementById("arena");
-  if(!arena || arena.classList.contains("locked") || S.brinde) return;
-  const r = el.getBoundingClientRect();
-  arena.classList.add("locked");
-  S.brinde = {nome:prize.nome, foto:prize.foto||"", em:new Date().toISOString()};
-  save();
-  track("brinde",{brinde:prize.nome});
-  const layer = document.createElement("div"); layer.className="pop-layer"; document.body.appendChild(layer);
-  const orb = document.createElement("div"); orb.className="pop-orb";
-  orb.style.cssText = `left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;background:${el.style.background}`;
-  orb.innerHTML = el.innerHTML;
-  document.body.appendChild(orb);
-  const vw = innerWidth, vh = innerHeight;
-  const sc = (Math.min(vw,vh)*0.72)/r.width;
-  const dx = vw/2-(r.left+r.width/2), dy = vh/2-(r.top+r.height/2);
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{ orb.style.transform = `translate(${dx}px,${dy}px) scale(${sc})`; }));
-  timers.push(setTimeout(()=>orb.classList.add("shake"), 1350));
-  timers.push(setTimeout(()=>{
-    orb.classList.add("boom");
-    orb.style.transform = `translate(${dx}px,${dy}px) scale(${sc*1.4})`;
-    beep(true);
-    confetti({at:[vw/2, vh/2]});
-    layer.innerHTML = `<div class="reveal" role="dialog" aria-label="Teu brinde">
-      <div class="k">💥 TEU BRINDE É…</div>
-      ${giftHTML(S.brinde)}
-      <h2 id="rn"></h2>
-      <p class="muted small">Mostra esta tela pra coordenação do teu turno pra retirar.</p>
-      <div class="final-msg" id="fm">${FINAL_MSG}</div>
-      <button class="btn" id="okb" style="margin-top:14px;opacity:0;pointer-events:none;transition:opacity .4s">Ver meu certificado</button>
-    </div>`;
-    document.getElementById("rn").textContent = S.brinde.nome;
-    requestAnimationFrame(()=>layer.querySelector(".reveal").classList.add("in"));
-    document.getElementById("okb").onclick = ()=>go("cert");
-  }, 1850));
-  timers.push(setTimeout(()=>orb.remove(), 2150));
-  timers.push(setTimeout(()=>{ const f=document.getElementById("fm"); if(f) f.classList.add("show"); }, 3600));
-  timers.push(setTimeout(()=>{ const o=document.getElementById("okb"); if(o){ o.style.opacity=1; o.style.pointerEvents="auto"; } }, 4800));
-}
 
 /* =========================================================
    TOPO
@@ -840,7 +729,7 @@ start(){
       <li>Lê os cards de cada missão (sem pular, hein)</li>
       <li>Responde 5 perguntas e precisa de <b>4 acertos</b> pra liberar a próxima</li>
       <li>Acumula XP, sobe de nível e ganha insígnias</li>
-      <li>Quem derrubar o chefão final desbloqueia um <b>prêmio surpresa 🎁</b>. O que é? Só descobre quem chegar lá 🤫</li>
+      <li>Quem derrubar o chefão final ganha o <b>Selo PS</b> 🏅</li>
     </ul>
   </div>
   <form id="f" novalidate>
@@ -864,7 +753,7 @@ start(){
       S = fresh(); S.name=n; S.turno=t||"Administração"; S.admin=true; S.started=new Date().toISOString(); save();
       go("map"); toast("🛠️ Modo administrador: tudo liberado"); return;
     }
-    if(n.split(" ").length<2 || n.length<5){ er.textContent="Coloca nome e sobrenome, pra aparecer certinho no certificado."; return; }
+    if(n.split(" ").length<2 || n.length<5){ er.textContent="Coloca nome e sobrenome, pra aparecer certinho no teu Selo PS."; return; }
     if(!t){ er.textContent="Escolhe teu turno."; return; }
     S = fresh(); S.name=n; S.turno=t; S.started=new Date().toISOString(); S.sid=uid(); save(); track("inicio",{},S.started);
     go("map");
@@ -909,13 +798,12 @@ map(){
       <span class="t" style="display:block">Chefão da Black Friday</span>
       <span class="s" style="display:block">${bs&&bs.passed?`✔ Derrotado: ${bs.best}/${BOSS_N}`:(bossOpen?`${BOSS_N} perguntas sorteadas, ${BOSS_SEC}s cada. Precisa de ${BOSS_MIN}.`:"🔒 Conclui as "+MODULES.length+" missões")}</span>
     </button></li></ol>`;
-  if(S.cert){ html += `<button class="btn dark" id="cert" style="margin-top:8px">🏅 Meu certificado SUPER PS</button>`; }
+  if(S.cert){ html += `<button class="btn dark" id="cert" style="margin-top:8px">🏅 Meu Selo PS</button>`; }
   if(S.admin){ html += `<section class="admbox">
     <b>🛠️ Modo administrador</b>
     <p class="small muted" style="margin:4px 0 12px">Todas as missões e o chefão estão liberados, sem tempo de leitura. Nada do que tu faz aqui vai pra planilha.</p>
     <div class="stack">
-      <button class="btn ghost" id="adm-fim">🎉 Ver tela de conclusão e certificado</button>
-      <button class="btn ghost" id="adm-brinde">🎁 Liberar a escolha do brinde de novo</button>
+      <button class="btn ghost" id="adm-fim">🎉 Ver tela de conclusão e Selo PS</button>
       <button class="btn ghost" id="adm-sair">Sair do modo administrador</button>
     </div></section>`; }
   html += `<div class="foot stack">
@@ -929,7 +817,6 @@ map(){
   const cb = document.getElementById("cert"); if(cb) cb.onclick = ()=>go("cert");
   if(S.admin){
     document.getElementById("adm-fim").onclick = ()=>{ if(!S.cert) S.cert={xp:S.xp, date:new Date().toISOString(), boss:BOSS_N}; save(); go("celebrate"); };
-    document.getElementById("adm-brinde").onclick = ()=>{ S.brinde=null; save(); toast("🎁 Escolha do brinde liberada"); };
     document.getElementById("adm-sair").onclick = ()=>{ try{ localStorage.removeItem(KEY); }catch(e){} S=fresh(); go("start"); };
   }
   let armed=false;
@@ -1129,7 +1016,7 @@ result(r){
   if(r.boss){
     big = r.passed ? "🏆" : "👹";
     title = r.passed ? "CHEFÃO DERRUBADO!" : "O chefão venceu essa…";
-    msg = r.passed ? `Tu tá pronto pra Black Friday, ${esc(firstName())}! E agora, o prêmio surpresa… 🎁` : `Precisa de ${BOSS_MIN} acertos. As perguntas mudam a cada tentativa. Revisa as missões e volta pra revanche!`;
+    msg = r.passed ? `Tu tá pronto pra Black Friday, ${esc(firstName())}! Bora ver teu Selo PS 🏅` : `Precisa de ${BOSS_MIN} acertos. As perguntas mudam a cada tentativa. Revisa as missões e volta pra revanche!`;
   } else {
     big = perfect ? "🏆" : (r.passed ? "👊" : "😵‍💫");
     title = perfect ? "GABARITOU!" : (r.passed ? "Missão cumprida!" : "Não foi dessa vez");
@@ -1148,7 +1035,7 @@ result(r){
   ${!r.boss && r.passed ? `<p class="muted small" style="text-align:center">Insígnia desbloqueada: ${MODULES[r.i].emoji} <b>${esc(MODULES[r.i].badge)}</b></p>`:""}
   <div class="stack" style="margin-top:14px">
     ${r.boss ? (r.passed
-        ? `<button class="btn" id="a1">Abrir meu prêmio surpresa 🎁</button>`
+        ? `<button class="btn" id="a1">Ver meu Selo PS 🏅</button>`
         : `<button class="btn" id="a1">Revanche! 👹</button>`)
       : (r.passed
         ? (lastMission ? `<button class="btn" id="a1">Encarar o Chefão 👹</button>` : `<button class="btn" id="a1">Próxima missão ➜</button>`)
@@ -1218,16 +1105,16 @@ cert(){
   <article class="super">
     <div class="hazard"></div>
     <div class="band">
-      <div class="seal" aria-hidden="true"><b>SUPER</b><span>PS</span></div>
-      <div class="ttl">Certificado SUPER PS</div>
+      <div class="seal" aria-hidden="true"><b>SELO</b><span>PS</span></div>
+      <div class="ttl">Selo PS</div>
       <div style="color:#fff;opacity:.8;font-size:14px;margin-top:4px">Curso teórico Problem Solver SVC, Modo Black Friday</div>
     </div>
     <div class="body">
-      <div class="muted small">Este certificado é de</div>
+      <div class="muted small">Este selo é de</div>
       <div class="name" id="cn"></div>
       <div class="msg">
         <p><b>Parabéns!</b> Tu começou <b>e terminou</b> o curso teórico do Problem Solver. Muita gente começa, pouca gente vai até o fim. E tu foi.</p>
-        <p style="margin:0">Isso mostra interesse, compromisso e vontade de fazer a diferença na operação. A partir de hoje tu é oficialmente um <b>SUPER PS</b>. 🦸</p>
+        <p style="margin:0">Isso mostra interesse, compromisso e vontade de fazer a diferença na operação. A partir de hoje tu carrega o <b>Selo PS</b>. 🦸</p>
       </div>
       <table>
         <tr><td>Turno</td><td id="ct"></td></tr>
@@ -1239,12 +1126,11 @@ cert(){
       </table>
     </div>
   </article>
-  <section class="gift-sec" id="gs"></section>
+  <div class="final-msg show">${FINAL_MSG}</div>
   <div class="stack" style="margin-top:18px"><button class="btn ghost" id="bk">Voltar pra trilha</button></div>`;
   document.getElementById("cn").textContent = S.name;
   document.getElementById("ct").textContent = S.turno;
   document.getElementById("bk").onclick = ()=>go("map");
-  renderGift();
 }
 };
 
